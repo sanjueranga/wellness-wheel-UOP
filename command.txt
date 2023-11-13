@@ -1,0 +1,1 @@
+DB_HOST=localhost DB_PORT=3003 DB_USER=wellness DB_PASSWORD=wellness DB_NAME=wellness pnpm start:dev
