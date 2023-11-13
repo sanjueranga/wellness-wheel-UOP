@@ -1,0 +1,12 @@
+version: "3.3"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: welness-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-wellness}
+      POSTGRES_USER: ${POSTGRES_USER:-wellness}
+      POSTGRES_PASSWORD: "wellness"
+    ports:
+      - "3003:5432"
