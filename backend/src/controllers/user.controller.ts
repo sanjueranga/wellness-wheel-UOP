@@ -11,6 +11,8 @@ import {
 } from '@nestjs/common';
 import { UserService } from '../services/user.service';
 import { CreateUserDto, EditUserDto } from 'src/dto/user.dto';
+import cookie from 'cookie';
+
 
 @Controller('users')
 export class UserController {
@@ -50,4 +52,6 @@ export class UserController {
       };
     }
   }
+
+  
 }
