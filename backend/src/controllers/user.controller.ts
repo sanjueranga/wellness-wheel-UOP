@@ -17,7 +17,7 @@ export class UserController {
   constructor(private userService: UserService) {}
 
   @Get()
-  @HttpCode(200) 
+  @HttpCode(200)
   async getAllUsers() {
     try {
       const users = await this.userService.getAllUsers();
@@ -34,7 +34,7 @@ export class UserController {
   }
 
   @Post()
-  @HttpCode(201) 
+  @HttpCode(201)
   async createUser(@Body() createUserDto: CreateUserDto) {
     try {
       const user = await this.userService.createUser(createUserDto);
