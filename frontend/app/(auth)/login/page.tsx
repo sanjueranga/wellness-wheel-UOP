@@ -1,12 +1,12 @@
-import { postLogin } from "@/config/api";
-import { useEffect } from "react";
+// import {postLogin} from "@/config/api";
+// import { useEffect } from "react";
 
 const HomePage = () => {
   
 
   const handleGoogleSignIn = async () => {
     try {
-      await postLogin()
+      // await postLogin()
 
     } catch (error) {
       console.error("Google Sign-In failed:", error);
