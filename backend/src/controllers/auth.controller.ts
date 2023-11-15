@@ -17,7 +17,9 @@ export class AuthController {
   @UseGuards(GoogleAuthGuard)
   async handleRedirect(@Request() req, @Response() res) {
     const authenticatedUser = req.user;
-    const userData = JSON.stringify(authenticatedUser);
+    const validatedUser =
+      await this.authService.validateUser(authenticatedUser);
+    const userData = JSON.stringify(validatedUser);
     if (authenticatedUser) {
       const script = `
       if (window.opener) {

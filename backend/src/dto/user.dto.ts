@@ -12,6 +12,10 @@ export class EditUserDto {
   @IsString()
   @IsOptional()
   lastName?: string;
+
+  @IsString()
+  @IsOptional()
+  picture?: string;
 }
 
 export class CreateUserDto {
@@ -26,4 +30,8 @@ export class CreateUserDto {
   @IsString()
   @IsOptional()
   lastName?: string;
+
+  @IsString()
+  @IsOptional()
+  picture?: string;
 }
