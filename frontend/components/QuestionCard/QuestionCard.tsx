@@ -16,6 +16,7 @@ const QuestionCard = (props: any) => {
             name={props.id}
             className="radio"
             value="2"
+            required
             onChange={handleRadioChange}
           />
           <input
@@ -23,6 +24,7 @@ const QuestionCard = (props: any) => {
             name={props.id}
             className="radio"
             value="1"
+            required
             onChange={handleRadioChange}
           />
           <input
@@ -30,6 +32,7 @@ const QuestionCard = (props: any) => {
             name={props.id}
             className="radio"
             value="0"
+            required
             onChange={handleRadioChange}
           />
         </div>
