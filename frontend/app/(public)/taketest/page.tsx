@@ -1,9 +1,29 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import "@/styles/globals.css";
 import QuestionCard from "@/components/QuestionCard/QuestionCard";
 import { physicalQuestions } from "@/constants";
 
 const TakeTest = () => {
+  const [selectedValues, setSelectedValues] = useState<{
+    [key: string]: string;
+  }>({});
+
+  const [totalScore, setTotalScore] = useState<number>(0);
+
+  const handleRadioChange = (questionId: string, selectedValue: string) => {
+    setSelectedValues((prevValues) => ({
+      ...prevValues,
+      [questionId]: selectedValue,
+    }));
+    setTotalScore((prevScore) => prevScore + Number(selectedValue));
+  };
+
+  const handleNextButtonClick = () => {
+    // Handle what you want to do when the next button is clicked, e.g., show the total score
+    console.log("Total Score:", totalScore);
+  };
+
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
@@ -74,7 +94,7 @@ const TakeTest = () => {
               </p>
             </div>
 
-            <form action="#" className="mt-8 ">
+            {/* <form action="#" className="mt-8 "> */}
               <div className="card bg-base-100 shadow-xl">
                 <div className="card-body">
                   <h2 className="card-title">Strengths</h2>
@@ -113,13 +133,18 @@ const TakeTest = () => {
                   </div>
                   <div className="grid gap-5">
                     {physicalQuestions.map((que) => (
-                      <QuestionCard text={que.question} id={que.ans} />
+                      <QuestionCard
+                        text={que.question}
+                        id={que.ans}
+                        onRadioChange={handleRadioChange}
+                      />
                     ))}
                   </div>
-                  <button className="mt-5">Next</button>
+                  <button className="mt-5" onClick={handleNextButtonClick}>Next</button>
+                  <div><h1>Your score: {totalScore}</h1></div>
                 </div>
               </div>
-            </form>
+            {/* </form> */}
           </div>
         </main>
       </div>
