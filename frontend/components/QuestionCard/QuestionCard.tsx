@@ -6,9 +6,9 @@ const QuestionCard = (props: any) => {
       <div className="card-body grid grid-cols-2">
         <p>{props.text}</p>
         <div className="flex justify-around items-center ">
-          <input type="radio" name="yes" className="radio" />
-          <input type="radio" name="sometimes" className="radio" />
-          <input type="radio" name="no" className="radio" />
+          <input type="radio" name={props.id} className="radio" />
+          <input type="radio" name={props.id} className="radio" />
+          <input type="radio" name={props.id} className="radio" />
         </div>
       </div>
     </div>

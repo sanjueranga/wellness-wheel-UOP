@@ -111,10 +111,9 @@ const TakeTest = () => {
                       <h3>No</h3>
                     </div>
                   </div>
-
                   <div className="grid gap-5">
                     {physicalQuestions.map((que) => (
-                      <QuestionCard text={que} />
+                      <QuestionCard text={que.question} id={que.ans} />
                     ))}
                   </div>
                   <button className="mt-5">Next</button>
