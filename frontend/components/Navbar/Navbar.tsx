@@ -27,7 +27,7 @@ const navbar = (props:{userPic?:string}) => (
             <a>Homepage</a>
           </li>
           <li className="">
-            <a href="/taketest">Take a Test</a>
+            <a href="/physical">Take a Test</a>
           </li>
           <li className="">
             <a>About</a>
