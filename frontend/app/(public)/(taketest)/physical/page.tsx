@@ -24,18 +24,15 @@ const Physical = () => {
     );
   };
 
-  const handleNextButtonClick = () => {
-    console.log("Total Score:", totalScore);
-  };
 
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
-        <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
+        <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-4">
           <img
             alt="Night"
             src="/physical.jpg"
-            className="absolute inset-0 h-full w-full object-cover opacity-80"
+            className="absolute inset-0 h-full w-full object-cover opacity-20"
           />
 
           <div className="hidden lg:relative lg:block lg:p-12">
@@ -66,8 +63,8 @@ const Physical = () => {
           </div>
         </section>
 
-        <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
-          <div className="max-w-xl lg:max-w-3xl">
+        <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-8">
+          <div className="max-w-3xl px-6 lg:max-w-6xl">
             <div className="relative -mt-16 block lg:hidden">
               <a
                 className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue-600 sm:h-20 sm:w-20"
@@ -93,7 +90,7 @@ const Physical = () => {
               <p className="mt-4 leading-relaxed text-gray-500">
                 Involves the maintenance of a healthy body, good physical health
                 habits, good nutrition and exercise, and obtaining appropriate
-                health care.
+                health care
               </p>
             </div>
 
@@ -143,12 +140,12 @@ const Physical = () => {
                     />
                   ))}
                 </div>
-                <button className="mt-5" onClick={handleNextButtonClick} >
+                {/* <form action="/physical" method="post"> */}
+                <button className="mt-5" >
                   <Link href="/intellectual">Next</Link>
                 </button>
-                <div>
-                  <h1>Your score: {totalScore}</h1>
-                </div>
+                {/* <input type="text" name={totalScore.toString()} className="hidden" /> */}
+                {/* </form> */}
               </div>
             </div>
             {/* </form> */}
