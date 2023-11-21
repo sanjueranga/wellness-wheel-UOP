@@ -7,12 +7,13 @@ import {
   ParseIntPipe,
   Patch,
   Post,
+  Put,
   UseGuards,
 } from '@nestjs/common';
 import { UserService } from '../services/user.service';
 import { CreateUserDto, EditUserDto } from 'src/dto/user.dto';
 import cookie from 'cookie';
-
+import { User } from 'src/entities/user.entity';
 
 @Controller('users')
 export class UserController {
@@ -53,5 +54,15 @@ export class UserController {
     }
   }
 
-  
+  @Put(':id')
+  async update(
+    @Param('id') id: number,
+    @Body() editUserDto: EditUserDto,
+  ): Promise<User | undefined> {
+    try {
+      return await this.userService.update(id, editUserDto);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
