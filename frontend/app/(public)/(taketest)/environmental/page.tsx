@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useState } from "react";
 import "@/styles/globals.css";
@@ -134,6 +135,7 @@ const Environmental = () => {
                 </div>
                 <div className="grid gap-5">
                   {intellectualQuestions.map((que) => (
+                    // eslint-disable-next-line react/jsx-key
                     <QuestionCard
                       text={que.question}
                       id={que.ans}
