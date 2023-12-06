@@ -90,7 +90,7 @@ const Physical = () => {
               <p className="mt-4 leading-relaxed text-gray-500">
                 Involves the maintenance of a healthy body, good physical health
                 habits, good nutrition and exercise, and obtaining appropriate
-                health care
+                health care.
               </p>
             </div>
 
