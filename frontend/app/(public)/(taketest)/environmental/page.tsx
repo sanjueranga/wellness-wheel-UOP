@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useState } from "react";
 import "@/styles/globals.css";
@@ -30,7 +31,7 @@ const Environmental = () => {
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
-        <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
+        <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-4">
           <img
             alt="Night"
             src="/environmental.jpg"
@@ -134,6 +135,7 @@ const Environmental = () => {
                 </div>
                 <div className="grid gap-5">
                   {intellectualQuestions.map((que) => (
+                    // eslint-disable-next-line react/jsx-key
                     <QuestionCard
                       text={que.question}
                       id={que.ans}

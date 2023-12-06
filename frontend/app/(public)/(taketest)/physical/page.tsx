@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useState } from "react";
 import "@/styles/globals.css";
@@ -9,9 +10,8 @@ const Physical = () => {
   const [selectedValues, setSelectedValues] = useState<{
     [key: string]: string;
   }>({});
-  const [totalScore, setTotalScore] = useState<number>(0); 
+  const [totalScore, setTotalScore] = useState<number>(0);
   const handleRadioChange = (questionId: string, selectedValue: string) => {
-
     const previousValue = selectedValues[questionId] || "0";
 
     setSelectedValues((prevValues) => ({
@@ -23,7 +23,6 @@ const Physical = () => {
       (prevScore) => prevScore - Number(previousValue) + Number(selectedValue)
     );
   };
-
 
   return (
     <section className="bg-white">
@@ -133,6 +132,7 @@ const Physical = () => {
                 </div>
                 <div className="grid gap-5">
                   {physicalQuestions.map((que) => (
+                    // eslint-disable-next-line react/jsx-key
                     <QuestionCard
                       text={que.question}
                       id={que.ans}
@@ -141,7 +141,7 @@ const Physical = () => {
                   ))}
                 </div>
                 {/* <form action="/physical" method="post"> */}
-                <button className="mt-5" >
+                <button className="mt-5">
                   <Link href="/intellectual">Next</Link>
                 </button>
                 {/* <input type="text" name={totalScore.toString()} className="hidden" /> */}
