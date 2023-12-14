@@ -3,10 +3,9 @@ import LottieAnimation from "../../components/Lottie/LottieAnimation";
 import Navbar from "../../components/Navbar/Navbar";
 import Lottie from "lottie-react";
 import "@/styles/globals.css";
-import { getUser } from "@/config/api";
+import { getUser, saveUser } from "@/config/api";
 import { useEffect, useState } from "react";
 import { Island_Moments } from "next/font/google";
-
 export const server = process.env.SERVER ?? "http://localhost:3333/api";
 
 const profileImg =
@@ -29,7 +28,7 @@ export default function Home() {
         if (event.origin === "http://localhost:3333") {
           if (event.data) {
             const receivedData = JSON.parse(event.data);
-            console.log(receivedData.picture);
+            saveUser(receivedData);
             setUserPicture(receivedData.picture);
             newWindow.close();
           }

@@ -36,6 +36,23 @@ export class UserController {
     }
   }
 
+  @Get(':id')
+  @HttpCode(200)
+  async getUserById(@Param('id') userId: number) {
+    try {
+      const user = await this.userService.findOne(userId);
+      return {
+        message: 'User retrieved successfully',
+        user,
+      };
+    } catch (error) {
+      return {
+        message: 'Failed to retrieve user',
+        error: error.message,
+      };
+    }
+  }
+
   @Post()
   @HttpCode(201)
   async createUser(@Body() createUserDto: CreateUserDto) {

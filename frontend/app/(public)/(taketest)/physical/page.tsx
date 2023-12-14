@@ -4,16 +4,16 @@ import "@/styles/globals.css";
 import QuestionCard from "@/components/QuestionCard/QuestionCard";
 import { physicalQuestions } from "@/constants";
 import Link from "next/link";
+import { getMe } from "@/config/api";
 
 const Physical = () => {
+  const user: any = getMe(); 
   const [selectedValues, setSelectedValues] = useState<{
     [key: string]: string;
   }>({});
-  const [totalScore, setTotalScore] = useState<number>(0); 
+  const [totalScore, setTotalScore] = useState<number>(0);
   const handleRadioChange = (questionId: string, selectedValue: string) => {
-
     const previousValue = selectedValues[questionId] || "0";
-
     setSelectedValues((prevValues) => ({
       ...prevValues,
       [questionId]: selectedValue,
@@ -23,7 +23,6 @@ const Physical = () => {
       (prevScore) => prevScore - Number(previousValue) + Number(selectedValue)
     );
   };
-
 
   return (
     <section className="bg-white">
@@ -141,7 +140,7 @@ const Physical = () => {
                   ))}
                 </div>
                 {/* <form action="/physical" method="post"> */}
-                <button className="mt-5" >
+                <button className="mt-5">
                   <Link href="/intellectual">Next</Link>
                 </button>
                 {/* <input type="text" name={totalScore.toString()} className="hidden" /> */}
