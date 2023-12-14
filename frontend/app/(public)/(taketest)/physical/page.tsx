@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useState } from "react";
 import "@/styles/globals.css";
@@ -89,7 +90,7 @@ const Physical = () => {
               <p className="mt-4 leading-relaxed text-gray-500">
                 Involves the maintenance of a healthy body, good physical health
                 habits, good nutrition and exercise, and obtaining appropriate
-                health care
+                health care.
               </p>
             </div>
 
@@ -132,6 +133,7 @@ const Physical = () => {
                 </div>
                 <div className="grid gap-5">
                   {physicalQuestions.map((que) => (
+                    // eslint-disable-next-line react/jsx-key
                     <QuestionCard
                       text={que.question}
                       id={que.ans}
