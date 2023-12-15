@@ -5,8 +5,10 @@ import "@/styles/globals.css";
 import QuestionCard from "@/components/QuestionCard/QuestionCard";
 import { intellectualQuestions } from "@/constants";
 import Link from "next/link";
+import { getMe, postScore } from "@/config/api";
 
 const Environmental = () => {
+  const user: any = getMe();
   const [selectedValues, setSelectedValues] = useState<{
     [key: string]: string;
   }>({});
@@ -24,8 +26,8 @@ const Environmental = () => {
     );
   };
 
-  const handleNextButtonClick = () => {
-    console.log("Total Score:", totalScore);
+  const handleNext = () => {
+    postScore({ environmental: totalScore }, user.id);
   };
 
   return (
@@ -143,12 +145,9 @@ const Environmental = () => {
                     />
                   ))}
                 </div>
-                <button className="mt-5" onClick={handleNextButtonClick}>
-                  <Link href="/result">Next</Link>
+                <button className="mt-5" onClick={handleNext}>
+                  <Link href="/spiritual">Next</Link>
                 </button>
-                <div>
-                  <h1>Your score: {totalScore}</h1>
-                </div>
               </div>
             </div>
             {/* </form> */}

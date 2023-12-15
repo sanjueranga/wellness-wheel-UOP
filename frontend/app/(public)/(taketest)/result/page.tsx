@@ -1,7 +1,7 @@
 "use client";
-import React from 'react';
-import Chart from 'chart.js/auto';
-
+import React, { useEffect, useState } from "react";
+import Chart from "chart.js/auto";
+import { getMe, getUser } from "@/config/api";
 
 interface ChartData {
   labels: string[];
@@ -14,59 +14,120 @@ interface ChartData {
 }
 
 const RadarChart: React.FC = () => {
-  const chartData: ChartData = {
-    labels: ['Eating', 'Sleeping', 'Working', 'Playing', 'Studying'],
-    datasets: [
-      {
-        label: 'My Activity',
-        data: [80, 70, 50, 30, 90],
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#E74C3C'],
-        borderColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#E74C3C'],
-      },
-    ],
-  };
+  const [userData, setUserData] = useState<any | null>(null);
 
-  const chartOptions = {
-    title: {
-      display: true,
-      text: 'My Daily Activity',
-    },
-    scale: {
-      ticks: {
-        beginAtZero: true,
-      },
-      angleLines: {
-        display: false,
-      },
-    },
-  };
-
-  let chartInstance: Chart | null = null;
-
-  React.useEffect(() => {
-    const ctx = document.getElementById('radarChart') as HTMLCanvasElement;
-    chartInstance = new Chart(ctx, {
-      type: 'radar',
-      data: chartData,
-      // options: chartOptions,
-    });
-  }, []);
-
-  React.useEffect(() => {
-    return () => {
-      if (chartInstance) {
-        chartInstance.destroy(); 
+  useEffect(() => {
+    const fetchDataAndSetState = async () => {
+      try {
+        const user: any = getMe();
+        const myUser: any = await getUser(user.id);
+        const data = await fetchData(myUser);
+        setUserData(data);
+        updateChart(data);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
       }
     };
+
+    fetchDataAndSetState();
   }, []);
+
+  const fetchData = async (myUser: any) => {
+    try {
+      const physicalScore = myUser.user.physical;
+      const intellectualScore = myUser.user.intellectual;
+      const occupationalScore = myUser.user.occupational;
+      const financialScore = myUser.user.financial;
+      const environmentalScore = myUser.user.environmental;
+      const emotionalScore = myUser.user.emotional;
+      const socialScore = myUser.user.social;
+      const spiritualScore = myUser.user.spiritual;
+
+      return {
+        physicalScore,
+        intellectualScore,
+        occupationalScore,
+        financialScore,
+        environmentalScore,
+        emotionalScore,
+        socialScore,
+        spiritualScore,
+      };
+    } catch (e) {
+      console.error("Error fetching data: ", e);
+      throw e;
+    }
+  };
+
+  console.log("data", userData);
+
+  const updateChart = (data: any) => {
+    const ctx = document.getElementById("radarChart") as HTMLCanvasElement;
+    const chartData: ChartData = {
+      labels: [
+        "Physical",
+        "Intellectual",
+        "Occupational",
+        "Financial",
+        "Environmental",
+        "Emotional",
+        "Social",
+        "Spiritual",
+      ],
+      datasets: [
+        {
+          label: "My Activity",
+          data: [
+            data.physicalScore,
+            data.intellectualScore,
+            data.occupationalScore,
+            data.financialScore,
+            data.environmentalScore,
+            data.emotionalScore,
+            data.socialScore,
+            data.spiritualScore,
+          ],
+          backgroundColor: [
+            "#FF6384",
+            "#36A2EB",
+            "#FFCE56",
+            "#4BC0C0",
+            "#E74C3C",
+            "#8E44AD",
+            "#2ECC71",
+            "#F39C12",
+          ],
+          borderColor: [
+            "#FF6384",
+            "#36A2EB",
+            "#FFCE56",
+            "#4BC0C0",
+            "#E74C3C",
+            "#8E44AD",
+            "#2ECC71",
+            "#F39C12",
+          ],
+        },
+      ],
+    };
+
+    let chartInstance: Chart | null = new Chart(ctx, {
+      type: "radar",
+      data: chartData,
+    });
+
+    return chartInstance;
+  };
 
   return (
     <div>
       <h1>Score</h1>
-      <canvas id="radarChart" style={{height:'600px', width:'600px'}}></canvas>
+      <canvas
+        id="radarChart"
+        style={{ height: "600px", width: "600px" }}
+      ></canvas>
     </div>
   );
 };
 
 export default RadarChart;
-

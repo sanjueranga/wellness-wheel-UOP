@@ -16,13 +16,7 @@
     "lottie-react": "^2.4.0",
     "next": "^14.0.2",
     "react": "^18.2.0",
-<<<<<<< HEAD
-    "react-chartjs-2": "^5.2.0",
-    "react-dom": "^18.2.0",
-    "universal-cookie": "^6.1.1"
-=======
     "react-dom": "^18.2.0"
->>>>>>> 18026e92408652a9896dec2c97c644db13898bc8
   },
   "devDependencies": {
     "@types/node": "^20",

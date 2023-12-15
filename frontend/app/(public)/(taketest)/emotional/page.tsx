@@ -3,18 +3,19 @@
 import React, { useState } from "react";
 import "@/styles/globals.css";
 import QuestionCard from "@/components/QuestionCard/QuestionCard";
-import { physicalQuestions } from "@/constants";
+import { intellectualQuestions } from "@/constants";
 import Link from "next/link";
 import { getMe, postScore } from "@/config/api";
 
-const Physical = () => {
-  const user: any = getMe(); 
+const Environmental = () => {
+  const user: any = getMe();
   const [selectedValues, setSelectedValues] = useState<{
     [key: string]: string;
   }>({});
   const [totalScore, setTotalScore] = useState<number>(0);
   const handleRadioChange = (questionId: string, selectedValue: string) => {
     const previousValue = selectedValues[questionId] || "0";
+
     setSelectedValues((prevValues) => ({
       ...prevValues,
       [questionId]: selectedValue,
@@ -26,7 +27,7 @@ const Physical = () => {
   };
 
   const handleNext = () => {
-    postScore({"physical":totalScore},user.id);
+    postScore({ emotional: totalScore }, user.id);
   };
 
   return (
@@ -35,8 +36,8 @@ const Physical = () => {
         <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-4">
           <img
             alt="Night"
-            src="/physical.jpg"
-            className="absolute inset-0 h-full w-full object-cover opacity-20"
+            src="/environmental.jpg"
+            className="absolute inset-0 h-full w-full object-cover opacity-80"
           />
 
           <div className="hidden lg:relative lg:block lg:p-12">
@@ -56,19 +57,19 @@ const Physical = () => {
             </a>
 
             <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-              Physical Wellness 🏃🏽🤸
+              Intellectual Wellness 🤦🏻‍♀️🤦‍♂️
             </h2>
 
             <p className="mt-4 leading-relaxed text-white/90">
-              Involves the maintenance of a healthy body, good physical health
-              habits, good nutrition and exercise, and obtaining appropriate
-              health care.
+              These are the things I do well ( my daily routines, habits, and
+              valued life activities that build and maintain my Intellectual
+              wellness)
             </p>
           </div>
         </section>
 
-        <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-8">
-          <div className="max-w-3xl px-6 lg:max-w-6xl">
+        <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
+          <div className="max-w-xl lg:max-w-3xl">
             <div className="relative -mt-16 block lg:hidden">
               <a
                 className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue-600 sm:h-20 sm:w-20"
@@ -88,13 +89,12 @@ const Physical = () => {
               </a>
 
               <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                Physical Wellness 🏃🏽🤸
+                Intellectual Wellness 🤦🏻‍♀️🤦‍♂️
               </h1>
 
               <p className="mt-4 leading-relaxed text-gray-500">
-                Involves the maintenance of a healthy body, good physical health
-                habits, good nutrition and exercise, and obtaining appropriate
-                health care.
+                Involves lifelong learning, application of knowledge learned,
+                and sharing knowledge.
               </p>
             </div>
 
@@ -105,8 +105,8 @@ const Physical = () => {
                 <label htmlFor="">
                   {" "}
                   These are the things I do well ( my daily routines, habits,
-                  and valued life activities that build and maintain my physical
-                  wellness)
+                  and valued life activities that build and maintain my
+                  Intellectual wellness)
                 </label>
                 <input
                   type="text"
@@ -120,7 +120,7 @@ const Physical = () => {
             <div className="collapse bg-base-200 mt-10 p-5">
               <input type="checkbox" />
               <div className="collapse-title text-xl font-medium">
-                <h3>Physical Wellness Test ⤵</h3>
+                <h3>Intellectual Wellness Test ⤵</h3>
               </div>
               <div className="collapse-content">
                 <h2 className="my-5 font-semibold">
@@ -136,7 +136,8 @@ const Physical = () => {
                   </div>
                 </div>
                 <div className="grid gap-5">
-                  {physicalQuestions.map((que) => (
+                  {intellectualQuestions.map((que) => (
+                    // eslint-disable-next-line react/jsx-key
                     <QuestionCard
                       text={que.question}
                       id={que.ans}
@@ -144,13 +145,12 @@ const Physical = () => {
                     />
                   ))}
                 </div>
-                <button className="mt-5">
-                  <Link href="/intellectual" onClick={handleNext}>
-                    Next
-                  </Link>
+                <button className="mt-5" onClick={handleNext}>
+                  <Link href="/financial">Next</Link>
                 </button>
               </div>
             </div>
+            {/* </form> */}
           </div>
         </main>
       </div>
@@ -158,4 +158,4 @@ const Physical = () => {
   );
 };
 
-export default Physical;
+export default Environmental;
