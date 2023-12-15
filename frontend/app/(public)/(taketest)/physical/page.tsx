@@ -5,18 +5,16 @@ import "@/styles/globals.css";
 import QuestionCard from "@/components/QuestionCard/QuestionCard";
 import { physicalQuestions } from "@/constants";
 import Link from "next/link";
-import { postScore } from "@/config/api";
-
-const server = process.env.SERVER ?? "http://localhost:3333/api";
+import { getMe } from "@/config/api";
 
 const Physical = () => {
+  const user: any = getMe(); 
   const [selectedValues, setSelectedValues] = useState<{
     [key: string]: string;
   }>({});
   const [totalScore, setTotalScore] = useState<number>(0);
   const handleRadioChange = (questionId: string, selectedValue: string) => {
     const previousValue = selectedValues[questionId] || "0";
-
     setSelectedValues((prevValues) => ({
       ...prevValues,
       [questionId]: selectedValue,
