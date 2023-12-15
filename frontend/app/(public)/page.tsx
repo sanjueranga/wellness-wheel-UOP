@@ -29,6 +29,7 @@ export default function Home() {
         if (event.origin === "http://localhost:3333") {
           if (event.data) {
             const receivedData = JSON.parse(event.data);
+            //cookieset
             console.log(receivedData.picture);
             setUserPicture(receivedData.picture);
             newWindow.close();

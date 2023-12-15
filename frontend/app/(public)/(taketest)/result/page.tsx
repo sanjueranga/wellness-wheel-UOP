@@ -2,6 +2,7 @@
 import React from 'react';
 import Chart from 'chart.js/auto';
 
+
 interface ChartData {
   labels: string[];
   datasets: {
@@ -61,6 +62,7 @@ const RadarChart: React.FC = () => {
 
   return (
     <div>
+      <h1>Score</h1>
       <canvas id="radarChart" style={{height:'600px', width:'600px'}}></canvas>
     </div>
   );

@@ -5,6 +5,9 @@ import "@/styles/globals.css";
 import QuestionCard from "@/components/QuestionCard/QuestionCard";
 import { physicalQuestions } from "@/constants";
 import Link from "next/link";
+import { postScore } from "@/config/api";
+
+const server = process.env.SERVER ?? "http://localhost:3333/api";
 
 const Physical = () => {
   const [selectedValues, setSelectedValues] = useState<{
@@ -22,6 +25,9 @@ const Physical = () => {
     setTotalScore(
       (prevScore) => prevScore - Number(previousValue) + Number(selectedValue)
     );
+  };
+
+  const handleNext = () => {
   };
 
   return (
@@ -132,7 +138,6 @@ const Physical = () => {
                 </div>
                 <div className="grid gap-5">
                   {physicalQuestions.map((que) => (
-                    // eslint-disable-next-line react/jsx-key
                     <QuestionCard
                       text={que.question}
                       id={que.ans}
@@ -140,15 +145,13 @@ const Physical = () => {
                     />
                   ))}
                 </div>
-                {/* <form action="/physical" method="post"> */}
                 <button className="mt-5">
-                  <Link href="/intellectual">Next</Link>
+                  <Link href="/intellectual" onClick={handleNext}>
+                    Next
+                  </Link>
                 </button>
-                {/* <input type="text" name={totalScore.toString()} className="hidden" /> */}
-                {/* </form> */}
               </div>
             </div>
-            {/* </form> */}
           </div>
         </main>
       </div>
