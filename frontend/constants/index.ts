@@ -185,3 +185,51 @@ export const spiritualQuestions = [
     ans: "question10",
   },
 ];
+
+export const socialQuestions = [
+  {
+    question: "I have a network of friends and/or family.",
+    ans: "question1",
+  },
+  {
+    question:
+      "I contribute time and/or money to social and community projects or causes.",
+    ans: "question2",
+  },
+  {
+    question:
+      "I regularly spend time with people I like.",
+    ans: "question3",
+  },
+  {
+    question: "I balance my own needs with the needs of others.",
+    ans: "question4",
+  },
+  {
+    question:
+      "I am a compassionate person and try to help others when I can.",
+    ans: "question5",
+  },
+  {
+    question:
+      "I have a sense of belonging within my community.",
+    ans: "question6",
+  },
+  {
+    question:
+      "I feel comfortable meeting new people.",
+    ans: "question7",
+  },
+  {
+    question: "I can give and receive compliments graciously.",
+    ans: "question8",
+  },
+  {
+    question: "I communicate with and get along with a wide variety of people.",
+    ans: "question9",
+  },
+  {
+    question: "I am interested in others, including those with backgrounds that are different from my own",
+    ans: "question10",
+  },
+];
