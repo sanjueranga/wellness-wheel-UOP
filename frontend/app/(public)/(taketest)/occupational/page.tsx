@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import "@/styles/globals.css";
 import QuestionCard from "@/components/QuestionCard/QuestionCard";
-import { intellectualQuestions } from "@/constants";
+import { occupationalQuestions } from "@/constants";
 import Link from "next/link";
 import { getMe, postScore } from "@/config/api";
 
@@ -62,7 +62,7 @@ const Environmental = () => {
 
             <p className="mt-4 leading-relaxed text-white/90">
               These are the things I do well ( my daily routines, habits, and
-              valued life activities that build and maintain my Intellectual
+              valued life activities that build and maintain my Occupational
               wellness)
             </p>
           </div>
@@ -89,7 +89,7 @@ const Environmental = () => {
               </a>
 
               <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                Intellectual Wellness 🤦🏻‍♀️🤦‍♂️
+                Occupational Wellness 🤦🏻‍♀️🤦‍♂️
               </h1>
 
               <p className="mt-4 leading-relaxed text-gray-500">
@@ -106,7 +106,7 @@ const Environmental = () => {
                   {" "}
                   These are the things I do well ( my daily routines, habits,
                   and valued life activities that build and maintain my
-                  Intellectual wellness)
+                  Occupational wellness)
                 </label>
                 <input
                   type="text"
@@ -120,7 +120,7 @@ const Environmental = () => {
             <div className="collapse bg-base-200 mt-10 p-5">
               <input type="checkbox" />
               <div className="collapse-title text-xl font-medium">
-                <h3>Intellectual Wellness Test ⤵</h3>
+                <h3>Occupational Wellness Test ⤵</h3>
               </div>
               <div className="collapse-content">
                 <h2 className="my-5 font-semibold">
@@ -136,7 +136,7 @@ const Environmental = () => {
                   </div>
                 </div>
                 <div className="grid gap-5">
-                  {intellectualQuestions.map((que) => (
+                  {occupationalQuestions.map((que) => (
                     // eslint-disable-next-line react/jsx-key
                     <QuestionCard
                       text={que.question}

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import "@/styles/globals.css";
 import QuestionCard from "@/components/QuestionCard/QuestionCard";
-import { intellectualQuestions } from "@/constants";
+import { spiritualQuestions } from "@/constants";
 import Link from "next/link";
 import { getMe, postScore } from "@/config/api";
 
@@ -57,12 +57,12 @@ const Environmental = () => {
             </a>
 
             <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-              Intellectual Wellness 🤦🏻‍♀️🤦‍♂️
+              Spiritual Wellness 🤦🏻‍♀️🤦‍♂️
             </h2>
 
             <p className="mt-4 leading-relaxed text-white/90">
               These are the things I do well ( my daily routines, habits, and
-              valued life activities that build and maintain my Intellectual
+              valued life activities that build and maintain my Spiritual
               wellness)
             </p>
           </div>
@@ -106,7 +106,7 @@ const Environmental = () => {
                   {" "}
                   These are the things I do well ( my daily routines, habits,
                   and valued life activities that build and maintain my
-                  Intellectual wellness)
+                  Spiritual wellness)
                 </label>
                 <input
                   type="text"
@@ -120,7 +120,7 @@ const Environmental = () => {
             <div className="collapse bg-base-200 mt-10 p-5">
               <input type="checkbox" />
               <div className="collapse-title text-xl font-medium">
-                <h3>Intellectual Wellness Test ⤵</h3>
+                <h3>Spiritual Wellness Test ⤵</h3>
               </div>
               <div className="collapse-content">
                 <h2 className="my-5 font-semibold">
@@ -136,7 +136,7 @@ const Environmental = () => {
                   </div>
                 </div>
                 <div className="grid gap-5">
-                  {intellectualQuestions.map((que) => (
+                  {spiritualQuestions.map((que) => (
                     // eslint-disable-next-line react/jsx-key
                     <QuestionCard
                       text={que.question}
