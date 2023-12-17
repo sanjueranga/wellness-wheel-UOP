@@ -8,7 +8,7 @@ import Link from "next/link";
 import { getMe, postScore } from "@/config/api";
 
 const Intellectual = () => {
-  const user: any = getMe(); 
+  const user: any = getMe();
   const [selectedValues, setSelectedValues] = useState<{
     [key: string]: string;
   }>({});
@@ -27,9 +27,8 @@ const Intellectual = () => {
   };
 
   const handleNext = () => {
-    postScore({"intellectual":totalScore},user.id);
+    postScore({ intellectual: totalScore }, user.id);
   };
-
 
   return (
     <section className="bg-white">
@@ -69,8 +68,8 @@ const Intellectual = () => {
           </div>
         </section>
 
-        <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
-          <div className="max-w-xl lg:max-w-3xl">
+        <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-8">
+          <div className="max-w-3xl px-6 lg:max-w-6xl">
             <div className="relative -mt-16 block lg:hidden">
               <a
                 className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue-600 sm:h-20 sm:w-20"

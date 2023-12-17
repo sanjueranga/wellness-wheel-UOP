@@ -8,7 +8,7 @@ import Link from "next/link";
 import { getMe, postScore } from "@/config/api";
 
 const Physical = () => {
-  const user: any = getMe(); 
+  const user: any = getMe();
   const [selectedValues, setSelectedValues] = useState<{
     [key: string]: string;
   }>({});
@@ -26,7 +26,7 @@ const Physical = () => {
   };
 
   const handleNext = () => {
-    postScore({"physical":totalScore},user.id);
+    postScore({ physical: totalScore }, user.id);
   };
 
   return (
