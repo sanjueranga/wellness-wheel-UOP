@@ -137,6 +137,7 @@ const Physical = () => {
                 </div>
                 <div className="grid gap-5">
                   {physicalQuestions.map((que) => (
+                    // eslint-disable-next-line react/jsx-key
                     <QuestionCard
                       text={que.question}
                       id={que.ans}

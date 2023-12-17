@@ -145,8 +145,10 @@ const Intellectual = () => {
                     />
                   ))}
                 </div>
-                <button className="mt-5" onClick={handleNext}>
-                  <Link href="/environmental">Next</Link>
+                <button className="mt-5 btn btn-primary px-10">
+                  <Link href="/environmental" onClick={handleNext}>
+                    Next
+                  </Link>
                 </button>
               </div>
             </div>

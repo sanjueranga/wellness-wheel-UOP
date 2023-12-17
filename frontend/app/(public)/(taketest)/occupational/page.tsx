@@ -145,8 +145,10 @@ const Environmental = () => {
                     />
                   ))}
                 </div>
-                <button className="mt-5" onClick={handleNext}>
-                  <Link href="/result">Next</Link>
+                <button className="mt-5 btn btn-primary px-10">
+                  <Link href="/result" onClick={handleNext}>
+                    Next
+                  </Link>
                 </button>
               </div>
             </div>
