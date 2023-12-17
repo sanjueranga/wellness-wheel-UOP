@@ -329,3 +329,51 @@ export const finantialQuestions = [
     ans: "question10",
   },
 ];
+
+export const occupationalQuestions = [
+  {
+    question: "I am actively pursuing work and/or training.",
+    ans: "question1",
+  },
+  {
+    question:
+      "I have considered my options regarding career change, getting additional education, self-employment, etc.",
+    ans: "question2",
+  },
+  {
+    question:
+      "I am pursuing an organized job search, keeping good records, and doing something towards my job search every day.",
+    ans: "question3",
+  },
+  {
+    question: "I use online resources to look for work, update skills, and network with others regarding my job search.",
+    ans: "question4",
+  },
+  {
+    question:
+      "I assertively market myself through personal networking.",
+    ans: "question5",
+  },
+  {
+    question:
+      "I confidently describe my skills and strengths as a worker.",
+    ans: "question6",
+  },
+  {
+    question:
+      "I have reached out to former colleagues, teachers, and other resources associated with my field or professional group.",
+    ans: "question7",
+  },
+  {
+    question: "I am aware of and use general community resources for people seeking work.",
+    ans: "question8",
+  },
+  {
+    question: "While I am waiting to get a job, I use my time productively to maintain my skills, support my community, etc.",
+    ans: "question9",
+  },
+  {
+    question: "I am hopeful in my job search.",
+    ans: "question10",
+  },
+];
