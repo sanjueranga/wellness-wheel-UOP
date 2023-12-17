@@ -89,7 +89,7 @@ const Environmental = () => {
               </a>
 
               <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                Intellectual Wellness 🤦🏻‍♀️🤦‍♂️
+                Spiritual Wellness 🤦🏻‍♀️🤦‍♂️
               </h1>
 
               <p className="mt-4 leading-relaxed text-gray-500">
