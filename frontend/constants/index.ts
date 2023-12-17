@@ -89,3 +89,51 @@ export const intellectualQuestions = [
     ans: "question10",
   },
 ];
+
+export const environmentalQuestions = [
+  {
+    question: "I regularly clean my living and work environment.",
+    ans: "question1",
+  },
+  {
+    question:
+      "I make maximal use of natural light, fresh air, and live plants.",
+    ans: "question2",
+  },
+  {
+    question:
+      "I discard garbage regularly, clean spoiled foods out of the refrigerator, and stay on top of any pet odors.",
+    ans: "question3",
+  },
+  {
+    question: "I tidy my home and work spaces in order to prevent clutter and stay organized.",
+    ans: "question4",
+  },
+  {
+    question:
+      "I conserve energy (fuel, electricity, water, etc.) in my home, my car, and elsewhere.",
+    ans: "question5",
+  },
+  {
+    question:
+      "I recycle (glass, paper, plastic, etc.).",
+    ans: "question6",
+  },
+  {
+    question:
+      "I do not litter.",
+    ans: "question7",
+  },
+  {
+    question: "I purchase recycled items when possible.",
+    ans: "question8",
+  },
+  {
+    question: "I set aside time to enjoy nature.",
+    ans: "question9",
+  },
+  {
+    question: "I set aside time to reflect and/or practice mindfulness.",
+    ans: "question10",
+  },
+];
