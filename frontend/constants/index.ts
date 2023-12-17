@@ -233,3 +233,51 @@ export const socialQuestions = [
     ans: "question10",
   },
 ];
+
+export const emotionalQuestions = [
+  {
+    question: "I accept responsibility for my actions.",
+    ans: "question1",
+  },
+  {
+    question:
+      "I see challenges and change as opportunities for growth.",
+    ans: "question2",
+  },
+  {
+    question:
+      "I believe that I have considerable control over my life.",
+    ans: "question3",
+  },
+  {
+    question: "I am able to laugh at life and myself.",
+    ans: "question4",
+  },
+  {
+    question:
+      "I feel good about myself.",
+    ans: "question5",
+  },
+  {
+    question:
+      "I am able to appropriately cope with stress and tension.",
+    ans: "question6",
+  },
+  {
+    question:
+      "I make time for leisure pursuits.",
+    ans: "question7",
+  },
+  {
+    question: "I am able to recognize my personal shortcomings and learn from my mistakes.",
+    ans: "question8",
+  },
+  {
+    question: "I am able to recognize and express my feelings.",
+    ans: "question9",
+  },
+  {
+    question: "I enjoy each day.",
+    ans: "question10",
+  },
+];
