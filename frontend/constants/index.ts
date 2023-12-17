@@ -137,3 +137,51 @@ export const environmentalQuestions = [
     ans: "question10",
   },
 ];
+
+export const spiritualQuestions = [
+  {
+    question: "I can name my own personal values and describe my beliefs about life.",
+    ans: "question1",
+  },
+  {
+    question:
+      "I make conscious choices about my daily actions based on my personal values.",
+    ans: "question2",
+  },
+  {
+    question:
+      "When I get depressed or frustrated, I draw on my beliefs and values to give me direction.",
+    ans: "question3",
+  },
+  {
+    question: "I use prayer, meditation, and/or quiet personal reflection regularly in my life.",
+    ans: "question4",
+  },
+  {
+    question:
+      "Life is meaningful for me, and I feel a purpose in life.",
+    ans: "question5",
+  },
+  {
+    question:
+      "I try to learn about others' beliefs and values, especially those that different from my own.",
+    ans: "question6",
+  },
+  {
+    question:
+      "I have a strong sense of optimism and faith in the future.",
+    ans: "question7",
+  },
+  {
+    question: "I use my thoughts and attitudes in life-affirming ways.",
+    ans: "question8",
+  },
+  {
+    question: "I appreciate the natural forces that exist in the universe.",
+    ans: "question9",
+  },
+  {
+    question: "I feel gratitude for the good things in my life.",
+    ans: "question10",
+  },
+];
