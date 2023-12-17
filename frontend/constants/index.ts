@@ -281,3 +281,51 @@ export const emotionalQuestions = [
     ans: "question10",
   },
 ];
+
+export const finantialQuestions = [
+  {
+    question: "I have a good handle on my financial status.",
+    ans: "question1",
+  },
+  {
+    question:
+      "I have money on hand to meet my current expenses.",
+    ans: "question2",
+  },
+  {
+    question:
+      "I understand the issues of balancing my wants and needs, and balancing saving and spending.",
+    ans: "question3",
+  },
+  {
+    question: "I balance my expenses (daily expenses / checkbook and audit my credit card statements).",
+    ans: "question4",
+  },
+  {
+    question:
+      "I have money on hand or available credit to deal with moderate unexpected life expenses such as a needed repair, broken glasses, or an emergency trip to see a sick relative.",
+    ans: "question5",
+  },
+  {
+    question:
+      "I pay my bills and file my taxes (if applicable) on time, and rarely or never get overdue notices, over-limit fees, or bounced check notices.",
+    ans: "question6",
+  },
+  {
+    question:
+      "I check my credit reports at least once a year.",
+    ans: "question7",
+  },
+  {
+    question: "My savings are on track with my life goals, such as home ownership, educating my children, or retirement.",
+    ans: "question8",
+  },
+  {
+    question: "I do not worry about money.",
+    ans: "question9",
+  },
+  {
+    question: "I have people I can turn to for good help with financial matters.",
+    ans: "question10",
+  },
+];
