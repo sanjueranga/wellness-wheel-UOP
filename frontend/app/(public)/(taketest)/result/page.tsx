@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import Chart from "chart.js/auto";
 import { getMe, getUser } from "@/config/api";
+import styles from './styles.module.css'
+
 
 interface ChartData {
   labels: string[];
@@ -15,6 +17,7 @@ interface ChartData {
 
 const RadarChart: React.FC = () => {
   const [userData, setUserData] = useState<any | null>(null);
+  const [physical, setPhysical] = useState();
 
   useEffect(() => {
     const fetchDataAndSetState = async () => {
@@ -42,6 +45,10 @@ const RadarChart: React.FC = () => {
       const emotionalScore = myUser.user.emotional;
       const socialScore = myUser.user.social;
       const spiritualScore = myUser.user.spiritual;
+
+      // let total = physicalScore+intellectualScore+occupationalScore+financialScore+environmentalScore+emotionalScore+socialScore+spiritualScore;
+
+      setPhysical(physicalScore);
 
       return {
         physicalScore,
@@ -120,12 +127,16 @@ const RadarChart: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Score</h1>
-      <canvas
-        id="radarChart"
-        style={{ height: "600px", width: "600px" }}
-      ></canvas>
+    <div className="grid grid-rows-2">
+      <div>
+        <p className={styles.test}>Physical Score: {physical}</p>
+      </div>
+      <div>
+        <canvas
+          id="radarChart"
+          style={{ height: "600px", width: "600px" }}
+        ></canvas>
+      </div>
     </div>
   );
 };

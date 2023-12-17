@@ -144,7 +144,7 @@ const Physical = () => {
                     />
                   ))}
                 </div>
-                <button className="mt-5">
+                <button className="mt-5 btn btn-blue px-10">
                   <Link href="/intellectual" onClick={handleNext}>
                     Next
                   </Link>

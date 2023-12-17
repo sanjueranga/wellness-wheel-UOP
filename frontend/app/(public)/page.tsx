@@ -1,7 +1,6 @@
 "use client";
 import LottieAnimation from "../../components/Lottie/LottieAnimation";
 import Navbar from "../../components/Navbar/Navbar";
-import Lottie from "lottie-react";
 import "@/styles/globals.css";
 import { getUser, saveUser } from "@/config/api";
 import { useEffect, useState } from "react";
@@ -9,7 +8,7 @@ import { Island_Moments } from "next/font/google";
 export const server = process.env.SERVER ?? "http://localhost:3333/api";
 
 const profileImg =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe2mHjhf_0E2RUH8SXrVaw-FPJ6whDt7awjQ&usqp=CAU";
+  "https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg";
 
 export default function Home() {
   const [userPicture, setUserPicture] = useState(null);
@@ -31,6 +30,9 @@ export default function Home() {
             saveUser(receivedData);
             setUserPicture(receivedData.picture);
             newWindow.close();
+
+            window.location.href = '/physical'; 
+    
           }
         }
       });
