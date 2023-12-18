@@ -13,6 +13,9 @@ const Environmental = () => {
     [key: string]: string;
   }>({});
   const [totalScore, setTotalScore] = useState<number>(0);
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const handleRadioChange = (questionId: string, selectedValue: string) => {
     const previousValue = selectedValues[questionId] || "0";
 
@@ -26,8 +29,20 @@ const Environmental = () => {
     );
   };
 
-  const handleNext = () => {
-    postScore({ financial: totalScore }, user.id);
+  // const handleNext = async () => {
+  //   await postScore({ financial: totalScore }, user.id);
+  // };
+
+  const handleNext = async () => {
+    try {
+      setIsLoading(true);
+
+      await postScore({ financial: totalScore }, user.id);
+    } catch (error) {
+      console.error("Error while posting score:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -145,11 +160,19 @@ const Environmental = () => {
                     />
                   ))}
                 </div>
-                <button className="mt-5 btn btn-primary px-10">
-                  <Link href="/occupational" onClick={handleNext}>
-                    Next
-                  </Link>
-                </button>
+                <Link href="/occupational" onClick={handleNext}>
+                <button
+                    className={`py-3 px-10 mt-10 bg-emerald-500 inline-block rounded-full ${
+                      isLoading
+                        ? "opacity-50 cursor-not-allowed"
+                        : "hover:bg-emerald-600"
+                    } text-white`}
+                    onClick={handleNext}
+                    disabled={isLoading}
+                  >
+                    {isLoading ? "Loading..." : "Next Page"}
+                  </button>
+                </Link>
               </div>
             </div>
             {/* </form> */}

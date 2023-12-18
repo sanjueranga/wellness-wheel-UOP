@@ -175,96 +175,101 @@ const RadarChart: React.FC = () => {
   return (
     // below is he HTML content of the results page
 
-    <div className={styles.container}>
-      <div className={styles.leftSide}>
-        <p className="text-zinc-800 text-xl font-medium pb-4">
+    <div className="grid grid-cols-2 p-10">
+      <div className="col pr-20 pl-16">
+        <p className="text-zinc-900 text-xl font-medium font-sans pb-4">
           Congratulations on taking the first step towards creating balance in
           your life.
         </p>
         <div className="grid grid-cols-3 pl-5 py-4">
           <div className="col">
-            <div className="bg-amber-200 w-3/4 p-2 text-center rounded-xl mb-5">
+            <div className="bg-amber-200 w-11/12 p-2 text-center rounded-xl mb-5">
               Physical Score {physicalScore}
             </div>
 
-            <div className="bg-orange-300 w-3/4 p-2 text-center rounded-xl mb-5">
+            <div className="bg-orange-300 w-11/12 p-2 text-center rounded-xl mb-5">
               Intellectual Score: {intellectualScore}
             </div>
-            <div className="bg-blue-300 w-3/4 p-2 text-center rounded-xl mb-5">
+            <div className="bg-blue-300 w-11/12 p-2 text-center rounded-xl mb-5">
               Occupational Score: {occupationalScore}
             </div>
-            <div className="bg-teal-100 w-3/4 p-2 text-center rounded-xl mb-5">
+            <div className="bg-teal-100 w-11/12 p-2 text-center rounded-xl mb-5">
               Financial Score: {financialScore}
             </div>
           </div>
 
           <div className="col">
-            <div className="bg-lime-200 w-3/4  p-2 text-center rounded-xl mb-5">
+            <div className="bg-lime-200 w-11/12 p-2 text-center rounded-xl mb-5">
               Environmental Score: {environmentalScore}
             </div>
-            <div className="bg-pink-300 w-3/4  p-2 text-center rounded-xl mb-5">
+            <div className="bg-pink-300 w-11/12 p-2 text-center rounded-xl mb-5">
               Emotional Score: {emotionalScore}
             </div>
-            <div className="bg-sky-200 w-3/4   p-2 text-center rounded-xl mb-5">
+            <div className="bg-sky-200 w-11/12 p-2 text-center rounded-xl mb-5">
               Social Score: {socialScore}
             </div>
-            <div className="bg-orange-200 w-3/4  p-2 text-center rounded-xl mb-5">
+            <div className="bg-orange-200 w-11/12 p-2 text-center rounded-xl mb-5">
               Spiritual Score: {spiritualScore}
             </div>
           </div>
           <div className="col"></div>
         </div>
-        <ul className="list-disc pl-10 pb-4">
-          <li>Physical Score: {physicalScore}</li>
-          <li>Intellectual Score: {intellectualScore}</li>
-          <li>Occupational Score: {occupationalScore}</li>
-          <li>Financial Score: {financialScore}</li>
-          <li>Environmental Score: {environmentalScore}</li>
-          <li>Emotional Score: {emotionalScore}</li>
-          <li>Social Score: {socialScore}</li>
-          <li>Spiritual Score: {spiritualScore}</li>
-        </ul>
-        <p className="pb-4">
+
+        <p className="pb-8 text-zinc-800">
           Now that you have taken the wellness assessment, Lets device an action
           plan to improve the main areas you want to work on to enhance your
           wellness and achieve a state of balance and contentment to unlock the
           potential to thrive for best.
         </p>
-        <h4 className="underline pb-2">Results Analysis for each component</h4>
-        <p className="font-bold">Scores of 15 - 20:</p>
-        <p className="pb-4">
-          Excellent! You are already taking positive steps in the considered
-          dimension of wellness. You're thriving to achieve the best and
-          probably are motivating those around you. However, remember you always
-          can improve and also, you may want to check for low scores on specific
-          items to see if there are focus areas you can particularly improve.
-          Wellness is all about balance, so check other areas where more focus
-          is required.
-        </p>
-        <p className="font-bold">Scores of 10 - 15:</p>
-        <p className="pb-4">
-          Steps that you have taken seems to be in the right direction and
-          commendable. You can aim for improvement. Focus on individual items to
-          see different actions you can device based on the identified
-          strengths. A small change in behavior can help you achieve better
-          wellness scores.
-        </p>
-        <p className="font-bold">Scores of 05 - 10:</p>
-        <p className="pb-4">
-          Even though you seems to have taken steps considering your wellness,
-          they seems to have a lot of room for improvement. Focus on individual
-          items to see different actions you can device based on the identified
-          strengths. You might need some notable changes in behavior can help
-          you achieve better wellness scores.
-        </p>
-        <p className="font-bold">Scores of 05 and below</p>
-        <p className="pb-4">
-          Some potential health and wellness risks are indicated in taking the
-          survey. Review each of those areas where you scored are extremely
-          lower and review resources to help you develop and set achievable
-          goals. If you want help deciding to make a change, contact us at
-          xxxxxx
-        </p>
+        <h4 className="pb-8 text-xl text-zinc-900 ">
+          Results Analysis for each component
+        </h4>
+        <div className="rounded-lg bg-blue-50 p-6 mb-8">
+          <p className="font-semibold pb-5">Scores of 15 - 20</p>
+          <p className="pb-4">
+            Excellent! You are already taking positive steps in the considered
+            dimension of wellness. You're thriving to achieve the best and
+            probably are motivating those around you. However, remember you
+            always can improve and also, you may want to check for low scores on
+            specific items to see if there are focus areas you can particularly
+            improve. Wellness is all about balance, so check other areas where
+            more focus is required.
+          </p>
+        </div>
+
+        <div className="rounded-lg bg-blue-50 p-6 mb-8">
+          <p className="font-semibold pb-5">Scores of 10 - 15</p>
+          <p className="pb-4">
+            Steps that you have taken seems to be in the right direction and
+            commendable. You can aim for improvement. Focus on individual items
+            to see different actions you can device based on the identified
+            strengths. A small change in behavior can help you achieve better
+            wellness scores.
+          </p>
+        </div>
+
+        <div className="rounded-lg bg-blue-50 p-6 mb-8">
+          <p className="font-semibold pb-5">Scores of 05 - 10</p>
+          <p className="pb-4">
+            Even though you seems to have taken steps considering your wellness,
+            they seems to have a lot of room for improvement. Focus on
+            individual items to see different actions you can device based on
+            the identified strengths. You might need some notable changes in
+            behavior can help you achieve better wellness scores.
+          </p>
+        </div>
+
+        <div className="rounded-lg bg-blue-50 p-6 mb-8">
+          <p className="font-semibold pb-5">Scores of 05 and below</p>
+          <p className="pb-4">
+            Some potential health and wellness risks are indicated in taking the
+            survey. Review each of those areas where you scored are extremely
+            lower and review resources to help you develop and set achievable
+            goals. If you want help deciding to make a change, contact us at
+            xxxxxx
+          </p>
+        </div>
+
         <button className="btn rounded-full bg-emerald-400 text-white hover:bg-emerald-600 mr-10">
           Download PDF
         </button>
@@ -272,7 +277,7 @@ const RadarChart: React.FC = () => {
           Send an Email
         </button>
       </div>
-      <div className="right-side">
+      <div className="col">
         <canvas id="radarChart"></canvas>
       </div>
     </div>
