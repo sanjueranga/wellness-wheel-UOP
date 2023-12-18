@@ -7,7 +7,7 @@ import { finantialQuestions } from "@/constants";
 import Link from "next/link";
 import { getMe, postScore } from "@/config/api";
 
-const Environmental = () => {
+const Financial = () => {
   const user: any = getMe();
   const [selectedValues, setSelectedValues] = useState<{
     [key: string]: string;
@@ -160,4 +160,4 @@ const Environmental = () => {
   );
 };
 
-export default Environmental;
+export default Financial;
