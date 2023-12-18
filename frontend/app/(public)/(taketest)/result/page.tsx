@@ -177,7 +177,43 @@ const RadarChart: React.FC = () => {
 
     <div className={styles.container}>
       <div className={styles.leftSide}>
-        <h1 className="text-emerald-400 text-3xl font-bold pb-4">Summary</h1>
+        <p className="text-zinc-800 text-xl font-medium pb-4">
+          Congratulations on taking the first step towards creating balance in
+          your life.
+        </p>
+        <div className="grid grid-cols-3 pl-5 py-4">
+          <div className="col">
+            <div className="bg-amber-200 w-3/4 p-2 text-center rounded-xl mb-5">
+              Physical Score {physicalScore}
+            </div>
+
+            <div className="bg-orange-300 w-3/4 p-2 text-center rounded-xl mb-5">
+              Intellectual Score: {intellectualScore}
+            </div>
+            <div className="bg-blue-300 w-3/4 p-2 text-center rounded-xl mb-5">
+              Occupational Score: {occupationalScore}
+            </div>
+            <div className="bg-teal-100 w-3/4 p-2 text-center rounded-xl mb-5">
+              Financial Score: {financialScore}
+            </div>
+          </div>
+
+          <div className="col">
+            <div className="bg-lime-200 w-3/4  p-2 text-center rounded-xl mb-5">
+              Environmental Score: {environmentalScore}
+            </div>
+            <div className="bg-pink-300 w-3/4  p-2 text-center rounded-xl mb-5">
+              Emotional Score: {emotionalScore}
+            </div>
+            <div className="bg-sky-200 w-3/4   p-2 text-center rounded-xl mb-5">
+              Social Score: {socialScore}
+            </div>
+            <div className="bg-orange-200 w-3/4  p-2 text-center rounded-xl mb-5">
+              Spiritual Score: {spiritualScore}
+            </div>
+          </div>
+          <div className="col"></div>
+        </div>
         <ul className="list-disc pl-10 pb-4">
           <li>Physical Score: {physicalScore}</li>
           <li>Intellectual Score: {intellectualScore}</li>

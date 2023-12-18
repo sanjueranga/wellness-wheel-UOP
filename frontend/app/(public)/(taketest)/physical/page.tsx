@@ -136,9 +136,10 @@ const Physical = () => {
                   </div>
                 </div>
                 <div className="grid gap-5">
-                  {physicalQuestions.map((que) => (
+                  {physicalQuestions.map((que, index) => (
                     // eslint-disable-next-line react/jsx-key
                     <QuestionCard
+                    key = {index}
                       text={que.question}
                       id={que.ans}
                       onRadioChange={handleRadioChange}

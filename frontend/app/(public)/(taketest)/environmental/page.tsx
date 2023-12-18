@@ -136,9 +136,9 @@ const Environmental = () => {
                   </div>
                 </div>
                 <div className="grid gap-5">
-                  {environmentalQuestions.map((que) => (
-                    // eslint-disable-next-line react/jsx-key
+                  {environmentalQuestions.map((que, index) => (
                     <QuestionCard
+                      key={index}
                       text={que.question}
                       id={que.ans}
                       onRadioChange={handleRadioChange}

@@ -136,9 +136,9 @@ const Intellectual = () => {
                   </div>
                 </div>
                 <div className="grid gap-5">
-                  {intellectualQuestions.map((que) => (
-                    // eslint-disable-next-line react/jsx-key
+                  {intellectualQuestions.map((que, index) => (
                     <QuestionCard
+                      key={index}
                       text={que.question}
                       id={que.ans}
                       onRadioChange={handleRadioChange}
