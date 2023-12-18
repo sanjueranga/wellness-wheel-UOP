@@ -51,7 +51,7 @@ const Financial = () => {
         <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-4">
           <img
             alt="Night"
-            src="/environmental.jpg"
+            src="/financial.jpg"
             className="absolute inset-0 h-full w-full object-cover opacity-80"
           />
 
@@ -161,7 +161,7 @@ const Financial = () => {
                   ))}
                 </div>
                 <Link href="/occupational" onClick={handleNext}>
-                <button
+                  <button
                     className={`py-3 px-10 mt-10 bg-emerald-500 inline-block rounded-full ${
                       isLoading
                         ? "opacity-50 cursor-not-allowed"
