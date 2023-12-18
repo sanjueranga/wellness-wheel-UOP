@@ -113,7 +113,6 @@ const Spiritual = () => {
               </p>
             </div>
 
-            {/* <form action="#" className="mt-8 "> */}
             <div className="card bg-base-100 shadow-xl">
               <div className="card-body">
                 <h2 className="card-title">Strengths</h2>
@@ -175,7 +174,6 @@ const Spiritual = () => {
                 </Link>
               </div>
             </div>
-            {/* </form> */}
           </div>
         </main>
       </div>
