@@ -9,10 +9,11 @@ import {
   Post,
   Put,
   UseGuards,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { CreateActionPlanDto } from 'src/dto/actionPlan.dto';
 import { ActionPlanService } from 'src/services/actionPlan.service';
-
 
 @Controller('action-plan')
 export class ActionPlanController {
@@ -53,14 +54,15 @@ export class ActionPlanController {
 
   @Post()
   @HttpCode(201)
+  @UsePipes(ValidationPipe)
   async createActionPlan(@Body() createActionPlanDto: CreateActionPlanDto) {
     try {
-      // const actionplan =
-      //   await this.actionPlanService.createActionPlan(createActionPlanDto);
-      console.log(createActionPlanDto)
+      const actionplan =
+        await this.actionPlanService.createActionPlan(createActionPlanDto);
+      console.log(createActionPlanDto);
       return {
         message: 'action plan created successfully',
-        // actionplan,
+        actionplan,
       };
     } catch (error) {
       return {

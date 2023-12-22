@@ -9,6 +9,8 @@ import {
   Post,
   Put,
   UseGuards,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import cookie from 'cookie';
 import { Submisson } from 'src/entities/submission.entity';
@@ -38,9 +40,12 @@ export class SubmissonController {
 
   @Post()
   @HttpCode(201)
+  @UsePipes(ValidationPipe)
   async createSubmission(@Body() createSubmissionDto: CreateSubmissonDto) {
     try {
-      const submission = await this.submissonService.createSubmisson(createSubmissionDto);
+      console.log('here');
+      const submission =
+        await this.submissonService.createSubmisson(createSubmissionDto);
 
       return {
         message: 'Submisson created successfully',
@@ -53,5 +58,4 @@ export class SubmissonController {
       };
     }
   }
-
 }
