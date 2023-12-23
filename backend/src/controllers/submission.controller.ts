@@ -13,11 +13,11 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import cookie from 'cookie';
-import { Submisson } from 'src/entities/submission.entity';
+import { Submission } from 'src/entities/submission.entity';
 import { CreateSubmissonDto } from 'src/dto/submission.dto';
 import { SubmissonService } from 'src/services/submission.service';
 
-@Controller('submisson')
+@Controller('submission')
 export class SubmissonController {
   constructor(private submissonService: SubmissonService) {}
 
@@ -25,10 +25,11 @@ export class SubmissonController {
   @HttpCode(200)
   async getSubmissonByUserId(@Param('id') userId: number) {
     try {
-      const submission = await this.submissonService.findOne(userId);
+      const submissions = await this.submissonService.findAll(userId);
+
       return {
         message: 'Submission retrieved successfully',
-        submission,
+        submissions,
       };
     } catch (error) {
       return {
@@ -43,7 +44,6 @@ export class SubmissonController {
   @UsePipes(ValidationPipe)
   async createSubmission(@Body() createSubmissionDto: CreateSubmissonDto) {
     try {
-      console.log('here');
       const submission =
         await this.submissonService.createSubmisson(createSubmissionDto);
 

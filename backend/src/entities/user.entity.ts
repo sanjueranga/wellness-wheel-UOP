@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { ActionPlan } from './actionPlan.entity';
-import { Submisson } from './submission.entity';
+import { Submission } from './submission.entity';
 
 @Entity()
 export class User {
@@ -25,6 +25,6 @@ export class User {
   @OneToMany((type) => ActionPlan, (actionPlan) => actionPlan.user)
   actionPlans: ActionPlan[];
 
-  @OneToMany((type) => Submisson, (submisson) => submisson.user)
-  submisson: Submisson[];
+  @OneToMany((type) => Submission, (submisson) => submisson.user)
+  submisson: Submission[];
 }

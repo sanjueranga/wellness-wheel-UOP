@@ -1,24 +1,26 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateSubmissonDto} from 'src/dto/submission.dto';
-import { Submisson } from 'src/entities/submission.entity';
+import { CreateSubmissonDto } from 'src/dto/submission.dto';
+import { Submission } from 'src/entities/submission.entity';
 
 @Injectable()
 export class SubmissonService {
   constructor(
-    @InjectRepository(Submisson)
-    private readonly submissonRepository: Repository<Submisson>,
+    @InjectRepository(Submission)
+    private readonly submissionRepository: Repository<Submission>,
   ) {}
 
-  async createSubmisson(submissionData: CreateSubmissonDto): Promise<Submisson> {
-    const submission = this.submissonRepository.create(submissionData);
-    return this.submissonRepository.save(submission);
+  async createSubmisson(
+    submissionData: CreateSubmissonDto,
+  ): Promise<Submission> {
+    const submission = this.submissionRepository.create(submissionData);
+    return this.submissionRepository.save(submission);
   }
 
-  async findOne(userId: number): Promise<Submisson[] | undefined> {
+  async findAll(userId: number): Promise<Submission[] | undefined> {
     try {
-      return this.submissonRepository.find({
+      return this.submissionRepository.find({
         where: { user: { id: userId } },
       });
     } catch (error) {

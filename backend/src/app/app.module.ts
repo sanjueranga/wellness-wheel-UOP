@@ -9,7 +9,7 @@ import { AuthModule } from 'src/modules/auth.module';
 import { User } from 'src/entities/user.entity';
 import { SubmissonModule } from 'src/modules/submisson.module';
 import { ActionPlanModule } from 'src/modules/actionPlan.module';
-import { Submisson } from 'src/entities/submission.entity';
+import { Submission } from 'src/entities/submission.entity';
 import { ActionPlan } from 'src/entities/actionPlan.entity';
 
 @Module({
@@ -17,7 +17,7 @@ import { ActionPlan } from 'src/entities/actionPlan.entity';
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       ...dbConfig(),
-      entities:[User,Submisson,ActionPlan]
+      entities:[User,Submission,ActionPlan]
     }),
     UserModule,
     AuthModule,
