@@ -161,6 +161,7 @@ const Physical = () => {
                       />
                     ))}
                   </div>
+                  
                   <Link href="/intellectual" onClick={handleNext}>
                     {/* <button className="py-3 px-10 mt-10 bg-emerald-500 inline-block rounded-full hover:bg-emerald-600 text-white">
                       Next Page
