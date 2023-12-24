@@ -12,10 +12,10 @@ const QuestionCard = (props: any) => {
     <div className="card bg-base-100 shadow-xl">
       <div className="card-body ">
         <h3 className="mb-5 text-lg font-medium text-gray-900 dark:text-white">
-          How much do you expect to use each month?
+          {props.text}
         </h3>
 
-        <p className="mb-5">{props.text}</p>
+        {/* <p className="mb-5">{props.text}</p> */}
         <ul className="grid w-full gap-6 md:grid-cols-5 text-center items-center">
           <li>
             <p className="text-[#88619A] ">Disagree</p>
@@ -24,7 +24,7 @@ const QuestionCard = (props: any) => {
             <input
               type="radio"
               id="hosting-small"
-              name="hosting"
+              name={props.id}
               value="0"
               className="hidden peer"
               required
@@ -38,7 +38,7 @@ const QuestionCard = (props: any) => {
             <input
               type="radio"
               id="hosting-small"
-              name="hosting"
+              name={props.id}
               value="1"
               className="hidden peer"
               required
@@ -52,7 +52,7 @@ const QuestionCard = (props: any) => {
             <input
               type="radio"
               id="hosting-small"
-              name="hosting"
+              name={props.id}
               value="2"
               className="hidden peer"
               required
