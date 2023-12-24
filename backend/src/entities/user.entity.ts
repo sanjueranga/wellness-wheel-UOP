@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { ActionPlan } from './actionPlan.entity';
+import { Submission } from './submission.entity';
 
 @Entity()
 export class User {
@@ -18,26 +20,11 @@ export class User {
   picture: string;
 
   @Column({ nullable: true })
-  emotional: number;
+  occupation: string;
 
-  @Column({ nullable: true })
-  physical: number;
+  @OneToMany((type) => ActionPlan, (actionPlan) => actionPlan.user)
+  actionPlans: ActionPlan[];
 
-  @Column({ nullable: true })
-  occupational: number;
-
-  @Column({ nullable: true })
-  social: number;
-
-  @Column({ nullable: true })
-  spiritual: number;
-
-  @Column({ nullable: true })
-  intellectual: number;
-
-  @Column({ nullable: true })
-  environmental: number;
-
-  @Column({ nullable: true })
-  financial: number;
+  @OneToMany((type) => Submission, (submisson) => submisson.user)
+  submisson: Submission[];
 }

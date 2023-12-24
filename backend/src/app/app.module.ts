@@ -7,16 +7,22 @@ import dbConfig from './config/db/orm.config';
 import { UserModule } from 'src/modules/user.module';
 import { AuthModule } from 'src/modules/auth.module';
 import { User } from 'src/entities/user.entity';
+import { SubmissonModule } from 'src/modules/submisson.module';
+import { ActionPlanModule } from 'src/modules/actionPlan.module';
+import { Submission } from 'src/entities/submission.entity';
+import { ActionPlan } from 'src/entities/actionPlan.entity';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       ...dbConfig(),
-      entities:[User]
+      entities:[User,Submission,ActionPlan]
     }),
     UserModule,
     AuthModule,
+    SubmissonModule,
+    ActionPlanModule
   ],
   controllers: [AppController],
   providers: [AppService],
