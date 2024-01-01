@@ -9,7 +9,7 @@ const QuestionCard = (props: any) => {
   };
 
   return (
-    <div className="card bg-base-100 hover:border-2 hover:border-[#e5d7d5] ">
+    <div className="card bg-base-100 border-2 border-transparent hover:border-[#e5d7d5] duration-300 delay-75">
       <div className="card-body ">
         <h3 className="mb-5 text-lg font-medium text-gray-900 dark:text-white">
           {props.text}
