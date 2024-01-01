@@ -17,12 +17,29 @@ const QuestionCard = (props: any) => {
 
         <div className="grid grid-cols-5 text-center">
           <p className="text-[#88619A] ">Disagree</p>
-          <div className="justify-center flex items-center"><input type="radio" name="radio-4" className="radio w-8 h-8 border-[#88619A] border-2 checked:bg-[#88619A]" /></div>
-          <div className="justify-center flex items-center"><input type="radio" name="radio-4" className="radio border-[#9B9FAA] border-2 checked:bg-[#9B9FAA]" /></div>
-          <div className="justify-center flex items-center"><input type="radio" name="radio-4" className="radio w-8 h-8 border-[#33A474] border-2 checked:bg-[#33A474]" /></div>
+          <div className="justify-center flex items-center">
+            <input
+              type="radio"
+              name={props.id}
+              className="radio w-8 h-8 border-[#88619A] border-2 checked:bg-[#88619A]"
+            />
+          </div>
+          <div className="justify-center flex items-center">
+            <input
+              type="radio"
+              name={props.id}
+              className="radio border-[#9B9FAA] border-2 checked:bg-[#9B9FAA]"
+            />
+          </div>
+          <div className="justify-center flex items-center">
+            <input
+              type="radio"
+              name={props.id}
+              className="radio w-8 h-8 border-[#33A474] border-2 checked:bg-[#33A474]"
+            />
+          </div>
           <p className="text-[#33A474]">Agree</p>
         </div>
-
       </div>
     </div>
   );
