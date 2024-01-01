@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const QuestionCard = (props: any) => {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  // const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedValue = event.target.value;
+    console.log(selectedValue);
     props.onRadioChange(props.id, selectedValue);
   };
+
 
   return (
     <div className="card bg-base-100 border-2 border-transparent hover:border-[#e5d7d5] duration-300 delay-75">
@@ -21,21 +23,27 @@ const QuestionCard = (props: any) => {
             <input
               type="radio"
               name={props.id}
+              value="0"
               className="radio w-8 h-8 border-[#88619A] border-2 checked:bg-[#88619A]"
+              onChange={handleRadioChange}
             />
           </div>
           <div className="justify-center flex items-center">
             <input
               type="radio"
               name={props.id}
+              value="1"
               className="radio border-[#9B9FAA] border-2 checked:bg-[#9B9FAA]"
+              onChange={handleRadioChange}
             />
           </div>
           <div className="justify-center flex items-center">
             <input
               type="radio"
               name={props.id}
+              value="2"
               className="radio w-8 h-8 border-[#33A474] border-2 checked:bg-[#33A474]"
+              onChange={handleRadioChange}
             />
           </div>
           <p className="text-[#33A474]">Agree</p>
