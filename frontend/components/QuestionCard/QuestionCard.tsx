@@ -21,6 +21,7 @@ const QuestionCard = (props: any) => {
             <input
               type="radio"
               name={props.id}
+              value="0"
               className="radio w-8 h-8 border-[#88619A] border-2 checked:bg-[#88619A]"
             />
           </div>
@@ -28,6 +29,7 @@ const QuestionCard = (props: any) => {
             <input
               type="radio"
               name={props.id}
+              value="1"
               className="radio border-[#9B9FAA] border-2 checked:bg-[#9B9FAA]"
             />
           </div>
@@ -35,6 +37,7 @@ const QuestionCard = (props: any) => {
             <input
               type="radio"
               name={props.id}
+              value="2"
               className="radio w-8 h-8 border-[#33A474] border-2 checked:bg-[#33A474]"
             />
           </div>
