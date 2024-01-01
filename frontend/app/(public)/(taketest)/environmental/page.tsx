@@ -142,14 +142,6 @@ const Environmental = () => {
                   Please select appropriately to assess your wellness
                 </h2>
 
-                <div className="grid grid-cols-2">
-                  <div></div>
-                  <div className="flex justify-around mb-2">
-                    <h3>Yes</h3>
-                    <h3>Sometimes</h3>
-                    <h3>No</h3>
-                  </div>
-                </div>
                 <div className="grid gap-5">
                   {environmentalQuestions.map((que, index) => (
                     <QuestionCard
