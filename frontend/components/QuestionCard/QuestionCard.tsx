@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const QuestionCard = (props: any) => {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  // const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedValue = event.target.value;
     props.onRadioChange(props.id, selectedValue);
   };
+
 
   return (
     <div className="card bg-base-100 border-2 border-transparent hover:border-[#e5d7d5] duration-300 delay-75">

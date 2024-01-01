@@ -31,7 +31,7 @@ const Physical = () => {
   const handleNext = async () => {
     try {
       setIsLoading(true);
-
+      console.log(totalScore);
       await postScore({ physical: totalScore }, user.id);
     } catch (error) {
       console.error("Error while posting score:", error);
