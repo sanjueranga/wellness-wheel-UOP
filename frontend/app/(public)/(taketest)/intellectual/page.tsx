@@ -152,6 +152,20 @@ const Intellectual = () => {
                     />
                   ))}
                 </div>
+
+                <Link href="/physical">
+                  <button
+                    className={`py-3 px-10 mr-4 mt-10 bg-emerald-500 inline-block rounded-full ${
+                      isLoading
+                        ? "opacity-50 cursor-not-allowed"
+                        : "hover:bg-emerald-600"
+                    } text-white`}
+                    disabled={isLoading}
+                  >
+                    {isLoading ? "Loading..." : "Previous Page"}
+                  </button>
+                </Link>
+
                 <Link href="/environmental" onClick={handleNext}>
                   <button
                     className={`py-3 px-10 mt-10 bg-emerald-500 inline-block rounded-full ${

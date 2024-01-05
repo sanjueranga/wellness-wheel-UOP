@@ -3,11 +3,11 @@
 import React, { useState } from "react";
 import "@/styles/globals.css";
 import QuestionCard from "@/components/QuestionCard/QuestionCard";
-import { environmentalQuestions } from "@/constants";
+import { actionPlanQuestions } from "@/constants";
 import Link from "next/link";
 import { getMe, postScore } from "@/config/api";
 
-const Environmental = () => {
+const ActionPlan = () => {
   const user: any = getMe();
   const [selectedValues, setSelectedValues] = useState<{
     [key: string]: string;
@@ -30,14 +30,14 @@ const Environmental = () => {
   };
 
   // const handleNext = async () => {
-  //   await postScore({ environmental: totalScore }, user.id);
+  //   await postScore({ ActionPlantual: totalScore }, user.id);
   // };
 
   const handleNext = async () => {
     try {
       setIsLoading(true);
 
-      await postScore({ environmental: totalScore }, user.id);
+      await postScore({ ActionPlan: totalScore }, user.id);
     } catch (error) {
       console.error("Error while posting score:", error);
     } finally {
@@ -51,7 +51,7 @@ const Environmental = () => {
         <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-4">
           <img
             alt="Night"
-            src="/environmental.jpg"
+            src="/ActionPlan.jpg"
             className="absolute inset-0 h-full w-full object-cover opacity-80"
           />
 
@@ -72,12 +72,12 @@ const Environmental = () => {
             </a>
 
             <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-              Environmental Wellness 🤦🏻‍♀️🤦‍♂️
+              ActionPlan Wellness 🤦🏻‍♀️🤦‍♂️
             </h2>
 
             <p className="mt-4 leading-relaxed text-white/90">
               These are the things I do well ( my daily routines, habits, and
-              valued life activities that build and maintain my Environmental
+              valued life activities that build and maintain my ActionPlan
               wellness)
             </p>
           </div>
@@ -104,7 +104,7 @@ const Environmental = () => {
               </a>
 
               <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                Environmental Wellness 🤦🏻‍♀️🤦‍♂️
+                ActionPlan Wellness 🤦🏻‍♀️🤦‍♂️
               </h1>
 
               <p className="mt-4 leading-relaxed text-gray-500">
@@ -113,7 +113,6 @@ const Environmental = () => {
               </p>
             </div>
 
-            {/* <form action="#" className="mt-8 "> */}
             <div className="card bg-base-100 shadow-xl">
               <div className="card-body">
                 <h2 className="card-title">Strengths</h2>
@@ -121,7 +120,7 @@ const Environmental = () => {
                   {" "}
                   These are the things I do well ( my daily routines, habits,
                   and valued life activities that build and maintain my
-                  Environmental wellness)
+                  ActionPlan wellness)
                 </label>
                 <input
                   type="text"
@@ -135,7 +134,7 @@ const Environmental = () => {
             <div className="collapse bg-base-200 mt-10 p-5">
               <input type="checkbox" />
               <div className="collapse-title text-xl font-medium">
-                <h3>Environmental Wellness Test ⤵</h3>
+                <h3>ActionPlan Wellness Test ⤵</h3>
               </div>
               <div className="collapse-content">
                 <h2 className="my-5 font-semibold">
@@ -143,9 +142,9 @@ const Environmental = () => {
                 </h2>
 
                 <div className="grid gap-5">
-                  {environmentalQuestions.map((que, index) => (
+                  {actionPlanQuestions.map((que) => (
+                    // eslint-disable-next-line react/jsx-key
                     <QuestionCard
-                      key={index}
                       text={que.question}
                       id={que.ans}
                       onRadioChange={handleRadioChange}
@@ -153,7 +152,7 @@ const Environmental = () => {
                   ))}
                 </div>
 
-                <Link href="/intellectual">
+                <Link href="/environmental">
                   <button
                     className={`py-3 px-10 mr-4 mt-10 bg-emerald-500 inline-block rounded-full ${
                       isLoading
@@ -166,7 +165,7 @@ const Environmental = () => {
                   </button>
                 </Link>
 
-                <Link href="/spiritual" onClick={handleNext}>
+                <Link href="/social" onClick={handleNext}>
                   <button
                     className={`py-3 px-10 mt-10 bg-emerald-500 inline-block rounded-full ${
                       isLoading
@@ -181,7 +180,6 @@ const Environmental = () => {
                 </Link>
               </div>
             </div>
-            {/* </form> */}
           </div>
         </main>
       </div>
@@ -189,4 +187,4 @@ const Environmental = () => {
   );
 };
 
-export default Environmental;
+export default ActionPlan;
