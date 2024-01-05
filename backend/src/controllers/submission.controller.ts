@@ -39,21 +39,51 @@ export class SubmissonController {
     }
   }
 
-  @Post()
+  @Post(':id')
   @HttpCode(201)
   @UsePipes(ValidationPipe)
-  async createSubmission(@Body() createSubmissionDto: CreateSubmissonDto) {
+  async createSubmission(
+    @Param('id') userId: number,
+    @Body() createSubmissionDto: CreateSubmissonDto,
+  ) {
     try {
-      const submission =
-        await this.submissonService.createSubmisson(createSubmissionDto);
+      const submission = await this.submissonService.createSubmisson(
+        createSubmissionDto,
+        userId,
+      );
 
       return {
-        message: 'Submisson created successfully',
+        message: 'Submission created successfully',
         submission,
       };
     } catch (error) {
       return {
         message: 'Failed to create submission',
+        error: error.message,
+      };
+    }
+  }
+
+  @Put(':id') // Put method for updating submission
+  @HttpCode(200)
+  @UsePipes(ValidationPipe)
+  async updateSubmission(
+    @Param('id', ParseIntPipe) submissionId: number,
+    @Body() updateSubmissionDto: CreateSubmissonDto,
+  ) {
+    try {
+      const updatedSubmission = await this.submissonService.updateSubmission(
+        submissionId,
+        updateSubmissionDto,
+      );
+
+      return {
+        message: 'Submission updated successfully',
+        submission: updatedSubmission,
+      };
+    } catch (error) {
+      return {
+        message: 'Failed to update submission',
         error: error.message,
       };
     }

@@ -2,19 +2,21 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ActionPlan } from 'src/entities/actionPlan.entity';
 import { Repository } from 'typeorm';
+import { UserService } from './user.service';
 
 @Injectable()
 export class ActionPlanService {
   constructor(
     @InjectRepository(ActionPlan)
     private readonly actionPlanRepository: Repository<ActionPlan>,
+    private userService:UserService
   ) {}
 
   async createActionPlan(
     actionPlanData: Partial<ActionPlan>,
+    id:number
   ): Promise<ActionPlan> {
-
-    console.log(actionPlanData)
+    actionPlanData.user= await this.userService.findOne(id)
     const actionplan = this.actionPlanRepository.create(actionPlanData);
     return this.actionPlanRepository.save(actionplan);
   }
