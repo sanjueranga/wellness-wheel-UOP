@@ -377,3 +377,51 @@ export const occupationalQuestions = [
     ans: "question10",
   },
 ];
+
+export const actionPlanQuestions = [
+  {
+    question: "Based on your wellness self-assessment results, list which aspects you are ready and willing to work on.",
+    description: "",
+    ans: "question1",
+  },
+  {
+    question: "Choose one aspect to work on",
+    description: "( Pick the most important and feasible one to achieve that can be immediately put into action)",
+    ans: "question2",
+  },
+  {
+    question: "Assess : Who you are right now?",
+    description: "On a separate piece of paper, draw an object that helps you to visualize the parts of your current lifestyle that you want to celebrate and/or improve upon. \nYou may also write a description here of what those elements are.",
+    ans: "question3",
+  },
+  {
+    question: "Assess : Who do you want to be?",
+    description: "On a separate piece of paper, draw an object that helps you to visualize the parts of your future lifestyle that you hope to see. \nYou may also write a description here of what those elements are.Select one of the behaviors you listed above and take action by setting a SMART goal:\nSpecific - develop the details of your goal (what, where, when, why)\nMeasurable - define a quantity (frequency, amount, etc.) that you can measure\nAttainable - do you have the means and attitude to accomplish this goal?\nRealistic - consider the goal and your time-frame. Is this doable?\nTime-bound - by what deadline or time frame do you wish to accomplish this goal?",
+    ans: "question4",
+  },
+  {
+    question: "Motivation",
+    description: "Why do you want to work on this aspect? Is your desire rooted in your values, or something else?",
+    ans: "question5",
+  },
+  {
+    question: "Facilitators and Barriers",
+    description: "What has helped OR stopped you from changing in the past?",
+    ans: "question6",
+  },
+  {
+    question: "What are the habits actions or routines you can start to close this gap? Be specific: define;",
+    description: "What (the action you will take)\nWhen (Will it be ongoing? Or a one-time thing? Weekday or weekend?)\nWhere (In what kind of space will you execute it?)\nWho (Alone? With friends?)",
+    ans: "question7",
+  },
+  {
+    question: "What are the habits actions or routines you can start to close this gap? Be specific: define;",
+    description: "What (the action you will take)\nWhen (Will it be ongoing? Or a one-time thing? Weekday or weekend?)\nWhere (In what kind of space will you execute it?)\nWho (Alone? With friends?)",
+    ans: "question8",
+  },
+  {
+    question: "What are the habits actions or routines you can start to close this gap? Be specific: define;",
+    description: "What (the action you will take)\nWhen (Will it be ongoing? Or a one-time thing? Weekday or weekend?)\nWhere (In what kind of space will you execute it?)\nWho (Alone? With friends?)",
+    ans: "question9",
+  },
+];

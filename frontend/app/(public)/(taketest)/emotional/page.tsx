@@ -142,14 +142,6 @@ const Emotional = () => {
                   Please select appropriately to assess your wellness
                 </h2>
 
-                <div className="grid grid-cols-2">
-                  <div></div>
-                  <div className="flex justify-around mb-2">
-                    <h3>Yes</h3>
-                    <h3>Sometimes</h3>
-                    <h3>No</h3>
-                  </div>
-                </div>
                 <div className="grid gap-5">
                   {emotionalQuestions.map((que) => (
                     // eslint-disable-next-line react/jsx-key
@@ -160,6 +152,20 @@ const Emotional = () => {
                     />
                   ))}
                 </div>
+
+                <Link href="/social">
+                  <button
+                    className={`py-3 px-10 mr-4 mt-10 bg-emerald-500 inline-block rounded-full ${
+                      isLoading
+                        ? "opacity-50 cursor-not-allowed"
+                        : "hover:bg-emerald-600"
+                    } text-white`}
+                    disabled={isLoading}
+                  >
+                    {isLoading ? "Loading..." : "Previous Page"}
+                  </button>
+                </Link>
+
                 <Link href="/financial" onClick={handleNext}>
                   <button
                     className={`py-3 px-10 mt-10 bg-emerald-500 inline-block rounded-full ${
