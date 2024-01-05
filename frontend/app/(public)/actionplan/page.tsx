@@ -16,35 +16,6 @@ const ActionPlan = () => {
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleRadioChange = (questionId: string, selectedValue: string) => {
-    const previousValue = selectedValues[questionId] || "0";
-
-    setSelectedValues((prevValues) => ({
-      ...prevValues,
-      [questionId]: selectedValue,
-    }));
-
-    setTotalScore(
-      (prevScore) => prevScore - Number(previousValue) + Number(selectedValue)
-    );
-  };
-
-  // const handleNext = async () => {
-  //   await postScore({ ActionPlantual: totalScore }, user.id);
-  // };
-
-  const handleNext = async () => {
-    try {
-      setIsLoading(true);
-
-      await postScore({ ActionPlan: totalScore }, user.id);
-    } catch (error) {
-      console.error("Error while posting score:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
@@ -137,42 +108,142 @@ const ActionPlan = () => {
                 <h3>ActionPlan Wellness Test ⤵</h3>
               </div>
               <div className="collapse-content">
-                <h2 className="my-5 font-semibold">
-                  Please select appropriately to assess your wellness
+                <h2 className="my-5 font-normal">
+                  Review your scores, both overall for each dimension of wellness and individual statements. For those areas where you scored lower, consider what might have a significant impact on your daily life (e.g., interferes with your performance, causes distress, etc.) and focus on those behaviors. Then ask your self what you feel
+                  capable of changing.
                 </h2>
 
                 <div className="grid gap-5">
-                  {actionPlanQuestions.map((que) => (
-                    // eslint-disable-next-line react/jsx-key
-                    <QuestionCard
-                      text={que.question}
-                      id={que.ans}
-                      onRadioChange={handleRadioChange}
-                    />
-                  ))}
+                  <div className="card bg-base-100 border-2 border-transparent hover:border-[#e5d7d5] duration-300 delay-75">
+                    <div className="card-body ">
+
+                      <div className="grid  text-start">
+                        <label htmlFor="">
+                          {" "}
+                          Based on your wellness self-assessment results, <strong>list which aspects you are ready and willing to work on</strong>.
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Your Answer"
+                          className="input input-bordered input-success w-full max-w-xs mt-5"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="card bg-base-100 border-2 border-transparent hover:border-[#e5d7d5] duration-300 delay-75">
+                    <div className="card-body ">
+
+                      <div className="grid  text-start">
+                        <label htmlFor="">
+                          {" "}
+                          <strong>Choose one aspect to work on</strong><br />
+                          ( Pick the most important and feasible one to achieve that can be immediately put into action)
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Your Answer"
+                          className="input input-bordered input-success w-full max-w-xs mt-5"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card bg-base-100 border-2 border-transparent hover:border-[#e5d7d5] duration-300 delay-75">
+                    <div className="card-body ">
+
+                      <div className="grid  text-start">
+                        <label htmlFor="">
+                          {" "}
+                          <strong>Assess : Who you are right now?</strong><br /><br />
+                          On a separate piece of paper, draw an object that helps you to visualize the parts of your current lifestyle that you want to celebrate and/or improve upon.
+                          You may also write a description here of what those elements are.
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Your Answer"
+                          className="input input-bordered input-success w-full max-w-xs mt-5"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card bg-base-100 border-2 border-transparent hover:border-[#e5d7d5] duration-300 delay-75">
+                    <div className="card-body ">
+
+                      <div className="grid  text-start">
+                        <label htmlFor="">
+                          {" "}
+                          <strong>Assess : Who do you want to be?</strong><br /><br />
+                          On a separate piece of paper, draw an object that helps you to visualize the parts of your future lifestyle that you hope to see.
+                          You may also write a description here of what those elements are.<br /><br />
+                          Select one of the behaviors you listed above and take action by setting a <strong>SMART</strong> goal:<br />
+                          <em><strong>S</strong>pecific - develop the details of your goal (what, where, when, why)<br />
+                            <strong>M</strong>easurable - define a quantity (frequency, amount, etc.) that you can measure<br />
+                            <strong>A</strong>ttainable - do you have the means and attitude to accomplish this goal?<br />
+                            <strong>R</strong>ealistic - consider the goal and your time-frame. Is this doable?<br />
+                            <strong>T</strong>ime-bound - by what deadline or time frame do you wish to accomplish this goal?<br /></em>
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Your Answer"
+                          className="input input-bordered input-success w-full max-w-xs mt-5"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card bg-base-100 border-2 border-transparent hover:border-[#e5d7d5] duration-300 delay-75">
+                    <div className="card-body ">
+
+                      <div className="grid  text-start">
+                        <label htmlFor="">
+                          {" "}
+                          <strong>Motivation</strong><br /><br />
+                          Why do you want to work on this aspect? Is your desire rooted in your values, or something else?
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Your Answer"
+                          className="input input-bordered input-success w-full max-w-xs mt-5"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card bg-base-100 border-2 border-transparent hover:border-[#e5d7d5] duration-300 delay-75">
+                    <div className="card-body ">
+
+                      <div className="grid  text-start">
+                        <label htmlFor="">
+                          {" "}
+                          <strong>Facilitators and Barriers</strong><br /><br />
+                          What has helped OR stopped you from changing in the past?
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Your Answer"
+                          className="input input-bordered input-success w-full max-w-xs mt-5"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <Link href="/environmental">
                   <button
-                    className={`py-3 px-10 mr-4 mt-10 bg-emerald-500 inline-block rounded-full ${
-                      isLoading
-                        ? "opacity-50 cursor-not-allowed"
-                        : "hover:bg-emerald-600"
-                    } text-white`}
+                    className={`py-3 px-10 mr-4 mt-10 bg-emerald-500 inline-block rounded-full ${isLoading
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-emerald-600"
+                      } text-white`}
                     disabled={isLoading}
                   >
                     {isLoading ? "Loading..." : "Previous Page"}
                   </button>
                 </Link>
 
-                <Link href="/social" onClick={handleNext}>
+                <Link href="/social">
                   <button
-                    className={`py-3 px-10 mt-10 bg-emerald-500 inline-block rounded-full ${
-                      isLoading
-                        ? "opacity-50 cursor-not-allowed"
-                        : "hover:bg-emerald-600"
-                    } text-white`}
-                    onClick={handleNext}
+                    className={`py-3 px-10 mt-10 bg-emerald-500 inline-block rounded-full ${isLoading
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-emerald-600"
+                      } text-white`}
                     disabled={isLoading}
                   >
                     {isLoading ? "Loading..." : "Next Page"}
