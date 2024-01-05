@@ -1,19 +1,26 @@
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PassportStrategy } from '@nestjs/passport';
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 
 @Injectable()
-export class JwtStrategy extends PassportStrategy(Strategy) {
+export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
   constructor() {
-    console.log(process.env.SECRET)
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: process.env.SECRET,
+      secretOrKey: 'rahasak',
     });
   }
 
-  async validate(payload) {
-    return { userId: payload.userId };
+  async validate(payload: any) {
+    try {
+      if (!payload.userId) {
+        throw new Error('Invalid payload: Missing userId');
+      }
+
+      return { userId: payload.userId };
+    } catch (error) {
+      throw new UnauthorizedException('Invalid token', error.message);
+    }
   }
 }

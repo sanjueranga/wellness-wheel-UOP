@@ -5,16 +5,17 @@ import { AuthController } from '../controllers/auth.controller';
 import { AuthService } from '../services/auth.service';
 import { GoogleStrategy } from '../utils/googleStrategy';
 import { JwtModule } from '@nestjs/jwt';
-import { JwtStrategy } from 'src/utils/jwt.strategy';
 import { ConfigModule } from '@nestjs/config';
+import { JwtStrategy } from 'src/utils/jwt.strategy';
+
 @Module({
   imports: [
-    ConfigModule,
+    ConfigModule.forRoot(),
     TypeOrmModule.forFeature([User]),
     JwtModule.register({
       global: true,
-      secret: process.env.SECRET,
       signOptions: { expiresIn: '3d' },
+      secret: process.env.SECRET,
     }),
   ],
   controllers: [AuthController],

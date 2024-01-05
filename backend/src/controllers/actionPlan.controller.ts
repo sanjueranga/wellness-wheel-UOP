@@ -11,8 +11,10 @@ import {
   UseGuards,
   UsePipes,
   ValidationPipe,
+  Request
 } from '@nestjs/common';
 import { CreateActionPlanDto } from 'src/dto/actionPlan.dto';
+import { JwtAuthGuard } from 'src/guards/jwt-auth.guard';
 import { ActionPlanService } from 'src/services/actionPlan.service';
 
 @Controller('action-plan')
@@ -35,11 +37,12 @@ export class ActionPlanController {
     }
   }
 
-  @Get(':id')
+  @UseGuards(JwtAuthGuard)
+  @Get()
   @HttpCode(200)
-  async getActionPlanByUserId(@Param('id') userId: number) {
+  async getActionPlanByUserId(@Request() req) {
     try {
-      const actionplan = await this.actionPlanService.findOne(userId);
+      const actionplan = await this.actionPlanService.findOne(req.user.userId);
       return {
         message: 'actionplan retrieved successfully',
         actionplan,
@@ -52,17 +55,18 @@ export class ActionPlanController {
     }
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   @HttpCode(201)
   @UsePipes(ValidationPipe)
   async createActionPlan(
-    @Param('id') userId: number,
+    @Request() req,
     @Body() createActionPlanDto: CreateActionPlanDto,
   ) {
     try {
       const actionplan = await this.actionPlanService.createActionPlan(
         createActionPlanDto,
-        userId,
+        req.user.userId,
       );
       console.log(createActionPlanDto);
       return {
