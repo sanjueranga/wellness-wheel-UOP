@@ -426,6 +426,54 @@ export const occupationalEmployedQuestions = [
   },
 ];
 
+export const occupationalUnemployedQuestions = [
+  {
+    question: "I am happy with how I spend my time.",
+    ans: "question1",
+  },
+  {
+    question:
+      "I have plans for things that I want to do.",
+    ans: "question2",
+  },
+  {
+    question:
+      "I do things with other people often enough not to feel isolated.",
+    ans: "question3",
+  },
+  {
+    question: "I use my time in a way that gives me meaning and purpose.",
+    ans: "question4",
+  },
+  {
+    question:
+      "I make good use of my strengths and experiences in the things I am doing each week.",
+    ans: "question5",
+  },
+  {
+    question:
+      "My weekly activities are consistent with my values and interests.",
+    ans: "question6",
+  },
+  {
+    question:
+      "I control how I spend my time.",
+    ans: "question7",
+  },
+  {
+    question: "I volunteer in the community, or have considered volunteering.",
+    ans: "question8",
+  },
+  {
+    question: "I feel productive every week.",
+    ans: "question9",
+  },
+  {
+    question: "I look forward to my daily and weekly activities.",
+    ans: "question10",
+  },
+];
+
 export const actionPlanQuestions = [
   {
     question: "Based on your wellness self-assessment results, list which aspects you are ready and willing to work on.",
