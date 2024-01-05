@@ -3,17 +3,21 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateSubmissonDto } from 'src/dto/submission.dto';
 import { Submission } from 'src/entities/submission.entity';
+import { UserService } from './user.service';
 
 @Injectable()
 export class SubmissonService {
   constructor(
     @InjectRepository(Submission)
     private readonly submissionRepository: Repository<Submission>,
+    private userService: UserService,
   ) {}
 
   async createSubmisson(
     submissionData: CreateSubmissonDto,
+    id: number,
   ): Promise<Submission> {
+    submissionData.user = await this.userService.findOne(id);
     const submission = this.submissionRepository.create(submissionData);
     return this.submissionRepository.save(submission);
   }

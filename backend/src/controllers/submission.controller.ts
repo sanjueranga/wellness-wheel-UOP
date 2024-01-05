@@ -7,7 +7,7 @@ import {
   ParseIntPipe,
   Patch,
   Post,
-  Put, 
+  Put,
   UseGuards,
   UsePipes,
   ValidationPipe,
@@ -42,10 +42,15 @@ export class SubmissonController {
   @Post()
   @HttpCode(201)
   @UsePipes(ValidationPipe)
-  async createSubmission(@Body() createSubmissionDto: CreateSubmissonDto) {
+  async createSubmission(
+    @Param('id') userId: number,
+    @Body() createSubmissionDto: CreateSubmissonDto,
+  ) {
     try {
-      const submission =
-        await this.submissonService.createSubmisson(createSubmissionDto);
+      const submission = await this.submissonService.createSubmisson(
+        createSubmissionDto,
+        userId,
+      );
 
       return {
         message: 'Submission created successfully',
