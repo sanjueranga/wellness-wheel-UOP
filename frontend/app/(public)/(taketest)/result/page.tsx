@@ -32,6 +32,7 @@ const RadarChart: React.FC = () => {
         const user: any = getMe();
         const myUser: any = await getUser(user.id);
         const data = await fetchData(myUser);
+        console.log("data: " + data);
         setUserData(data);
         updateChart(data);
       } catch (error) {

@@ -9,37 +9,10 @@ import Link from "next/link";
 import { getMe, postScore } from "@/config/api";
 import { log } from "console";
 
-const Physical = () => {
+const ActionPlan = () => {
   const user: any = getMe();
-  const [selectedValues, setSelectedValues] = useState<{
-    [key: string]: string;
-  }>({});
-  const [totalScore, setTotalScore] = useState<number>(0);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const handleRadioChange = (questionId: string, selectedValue: string) => {
-    const previousValue = selectedValues[questionId] || "0";
-    setSelectedValues((prevValues) => ({
-      ...prevValues,
-      [questionId]: selectedValue,
-    }));
-    setTotalScore(
-      (prevScore) => prevScore - Number(previousValue) + Number(selectedValue)
-    );
-    console.log("total " + totalScore);
-  };
-
-  const handleNext = async () => {
-    try {
-      setIsLoading(true);
-      await postScore({ physical: totalScore }, user.id);
-    } catch (error) {
-      console.error("Error while posting score:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   return (
     <>
@@ -132,22 +105,18 @@ const Physical = () => {
                         key={index}
                         text={que.question}
                         id={que.ans}
-                        onRadioChange={handleRadioChange}
+
                       />
                     ))}
                   </div>
 
-                  <Link href="/intellectual" onClick={handleNext}>
-                    {/* <button className="py-3 px-10 mt-10 bg-emerald-500 inline-block rounded-full hover:bg-emerald-600 text-white">
-                      Next Page
-                    </button> */}
+                  <Link href="/intellectual">
 
                     <button
                       className={`py-3 px-10 mt-10 bg-emerald-500 inline-block rounded-full ${isLoading
                         ? "opacity-50 cursor-not-allowed"
                         : "hover:bg-emerald-600"
                         } text-white`}
-                      onClick={handleNext}
                       disabled={isLoading}
                     >
                       {isLoading ? "Loading..." : "Next Page"}
@@ -157,10 +126,10 @@ const Physical = () => {
               </div>
             </div>
           </main>
-        </div>
-      </section>
+        </div >
+      </section >
     </>
   );
 };
 
-export default Physical;
+export default ActionPlan;

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 const QuestionCard = (props: any) => {
-  // const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedValue = event.target.value;
