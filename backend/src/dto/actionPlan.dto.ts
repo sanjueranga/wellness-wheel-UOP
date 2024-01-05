@@ -1,4 +1,5 @@
 import { IsOptional, IsString, IsDate, IsNumber, IsNotEmpty } from 'class-validator';
+import { User } from 'src/entities/user.entity';
 
 export class CreateActionPlanDto {
   @IsOptional()
@@ -66,5 +67,5 @@ export class CreateActionPlanDto {
   endDate?: Date;
 
   @IsNotEmpty()
-  userId?: number;
+  user?: User;
 }
