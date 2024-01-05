@@ -40,7 +40,7 @@ export class UserController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('one')
+  @Get('me')
   @HttpCode(200)
   async getUserById(@Request() req) {
     try {
