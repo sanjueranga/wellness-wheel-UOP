@@ -14,7 +14,7 @@ import { ActionPlan } from 'src/entities/actionPlan.entity';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       ...dbConfig(),
       entities: [User, Submission, ActionPlan],
