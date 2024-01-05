@@ -9,10 +9,11 @@ import { JwtStrategy } from 'src/utils/jwt.strategy';
 import { ConfigModule } from '@nestjs/config';
 @Module({
   imports: [
+    ConfigModule,
     TypeOrmModule.forFeature([User]),
     JwtModule.register({
       global: true,
-      secret: 'abc',
+      secret: process.env.SECRET,
       signOptions: { expiresIn: '3d' },
     }),
   ],
