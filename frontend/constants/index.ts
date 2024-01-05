@@ -378,6 +378,54 @@ export const occupationalStudentQuestions = [
   },
 ];
 
+export const occupationalEmployedQuestions = [
+  {
+    question: "I am happy with my career choice.",
+    ans: "question1",
+  },
+  {
+    question:
+      "I am productive on most days at work.",
+    ans: "question2",
+  },
+  {
+    question:
+      "I look forward to work",
+    ans: "question3",
+  },
+  {
+    question: "My job responsibilities/duties are consistent with my values.",
+    ans: "question4",
+  },
+  {
+    question:
+      "The payoffs and advantages in my choice of career/field are consistent with my values.",
+    ans: "question5",
+  },
+  {
+    question:
+      "I am happy with the balance between my work time and my leisure time.",
+    ans: "question6",
+  },
+  {
+    question:
+      "I am happy with the amount of control I have in my work.",
+    ans: "question7",
+  },
+  {
+    question: "My work gives me personal satisfaction and stimulation.",
+    ans: "question8",
+  },
+  {
+    question: "I am happy with the professional and personal growth that is provided by my job.",
+    ans: "question9",
+  },
+  {
+    question: "My job allows me to make good use of my talents",
+    ans: "question10",
+  },
+];
+
 export const actionPlanQuestions = [
   {
     question: "Based on your wellness self-assessment results, list which aspects you are ready and willing to work on.",
