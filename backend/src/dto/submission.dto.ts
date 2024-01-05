@@ -40,6 +40,5 @@ export class CreateSubmissonDto {
   @IsOptional()
   financial?: number;
 
-  @IsNotEmpty()
   user?: User;
 }

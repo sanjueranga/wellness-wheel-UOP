@@ -15,8 +15,8 @@ export const server = process.env.SERVER ?? "http://localhost:3333/api";
 // }
 
 export async function postScore(data: any, id: number) {
-  const res = await fetch(`${server}/users/${id}`, {
-    method: "PUT",
+  const res = await fetch(`${server}/submission/${id}`, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
@@ -66,13 +66,24 @@ export function getMe() {
 
       return user;
     } else {
-      return null; 
+      return null;
     }
-  } catch (error:any) {
-    
+  } catch (error: any) {
     console.error("Error accessing localStorage:", error.message);
-    return null; 
-}}
+    return null;
+  }
+}
 
-
-
+export async function postActonPlan(data: any, id: number) {
+  const res = await fetch(`${server}/action-plan/${id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) {
+    throw new Error("Failed to action plan data");
+  }
+  return await res.json();
+}

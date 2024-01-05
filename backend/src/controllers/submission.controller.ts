@@ -39,7 +39,7 @@ export class SubmissonController {
     }
   }
 
-  @Post()
+  @Post(':id')
   @HttpCode(201)
   @UsePipes(ValidationPipe)
   async createSubmission(
