@@ -27,12 +27,12 @@ export default function Home() {
         if (event.origin === "http://localhost:3333") {
           if (event.data) {
             const receivedData = JSON.parse(event.data);
-            saveUser(receivedData);
+            console.log(receivedData.token);
+            saveUser(receivedData.token);
             setUserPicture(receivedData.picture);
             newWindow.close();
 
-            window.location.href = '/physical'; 
-    
+            window.location.href = "/physical";
           }
         }
       });

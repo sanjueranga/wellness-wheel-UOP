@@ -41,10 +41,10 @@ export async function getUser(id: number) {
   return await res.json();
 }
 
-export function saveUser(user: any) {
-  localStorage.setItem("userNameW", JSON.stringify(user.name));
-  localStorage.setItem("userIdW", JSON.stringify(user.id));
-  localStorage.setItem("userPictureW", JSON.stringify(user.picture));
+export function saveUser(token: any) {
+  localStorage.setItem("wellness-token", JSON.stringify(token));
+  // localStorage.setItem("userIdW", JSON.stringify(user.id));
+  // localStorage.setItem("userPictureW", JSON.stringify(user.picture));
 }
 
 export function getMe() {
