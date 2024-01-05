@@ -330,7 +330,7 @@ export const finantialQuestions = [
   },
 ];
 
-export const occupationalQuestions = [
+export const occupationalStudentQuestions = [
   {
     question: "I am actively pursuing work and/or training.",
     ans: "question1",

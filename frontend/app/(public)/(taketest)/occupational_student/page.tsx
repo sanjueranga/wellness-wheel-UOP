@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import "@/styles/globals.css";
 import QuestionCard from "@/components/QuestionCard/QuestionCard";
-import { occupationalQuestions } from "@/constants";
+import { occupationalStudentQuestions } from "@/constants";
 import Link from "next/link";
 import { getMe, postScore } from "@/config/api";
 
@@ -143,7 +143,7 @@ const Occupational = () => {
                 </h2>
 
                 <div className="grid gap-5">
-                  {occupationalQuestions.map((que) => (
+                  {occupationalStudentQuestions.map((que) => (
                     // eslint-disable-next-line react/jsx-key
                     <QuestionCard
                       text={que.question}
