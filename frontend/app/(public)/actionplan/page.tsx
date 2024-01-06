@@ -84,22 +84,7 @@ const ActionPlan = () => {
               </p>
             </div>
 
-            <div className="card bg-base-100 shadow-xl">
-              <div className="card-body">
-                <h2 className="card-title">Strengths</h2>
-                <label htmlFor="">
-                  {" "}
-                  These are the things I do well ( my daily routines, habits,
-                  and valued life activities that build and maintain my
-                  ActionPlan wellness)
-                </label>
-                <input
-                  type="text"
-                  placeholder="Type here"
-                  className="input input-bordered input-success w-full max-w-xs"
-                />
-              </div>
-            </div>
+
 
             {/* card list */}
             <div className="collapse bg-base-200 mt-10 p-5">
@@ -184,6 +169,7 @@ const ActionPlan = () => {
                         </label>
                         <input
                           type="text"
+
                           placeholder="Your Answer"
                           className="input input-bordered input-success w-full max-w-xs mt-5"
                         />
@@ -343,7 +329,7 @@ const ActionPlan = () => {
                   </div>
                 </div>
 
-                <Link href="/environmental">
+                <Link href="/result">
                   <button
                     className={`py-3 px-10 mr-4 mt-10 bg-emerald-500 inline-block rounded-full ${isLoading
                       ? "opacity-50 cursor-not-allowed"
@@ -363,7 +349,7 @@ const ActionPlan = () => {
                       } text-white`}
                     disabled={isLoading}
                   >
-                    {isLoading ? "Loading..." : "Next Page"}
+                    {isLoading ? "Loading..." : "Download PDF"}
                   </button>
                 </Link>
               </div>

@@ -5,6 +5,7 @@ import { getMe, getUser } from "@/config/api";
 import styles from "./styles.module.css";
 
 import "@/styles/globals.css";
+import Link from "next/link";
 interface ChartData {
   labels: string[];
   datasets: {
@@ -271,9 +272,9 @@ const RadarChart: React.FC = () => {
           </p>
         </div>
 
-        <button className="btn rounded-full bg-emerald-400 text-white hover:bg-emerald-600 mr-10">
-          Download PDF
-        </button>
+        <Link href="/actionplan"> <button className="btn rounded-full bg-emerald-400 text-white hover:bg-emerald-600 mr-10">
+          Action Plan
+        </button></Link>
         <button className="btn rounded-full bg-emerald-400 text-white hover:bg-emerald-600">
           Send an Email
         </button>
