@@ -25,6 +25,7 @@ const QuestionCard = (props: any) => {
               value="0"
               className="radio w-8 h-8 border-[#88619A] border-2 checked:bg-[#88619A]"
               onChange={handleRadioChange}
+              required
             />
           </div>
           <div className="justify-center flex items-center">
@@ -34,6 +35,7 @@ const QuestionCard = (props: any) => {
               value="1"
               className="radio border-[#9B9FAA] border-2 checked:bg-[#9B9FAA]"
               onChange={handleRadioChange}
+              required
             />
           </div>
           <div className="justify-center flex items-center">
@@ -43,6 +45,7 @@ const QuestionCard = (props: any) => {
               value="2"
               className="radio w-8 h-8 border-[#33A474] border-2 checked:bg-[#33A474]"
               onChange={handleRadioChange}
+              required
             />
           </div>
           <p className="text-[#33A474]">Agree</p>

@@ -10,6 +10,8 @@ import { getMe, postScore } from "@/config/api";
 import { log } from "console";
 
 const Physical = () => {
+
+  // const storedScore = localStorage.getItem("physicalScore");
   const user: any = getMe();
   const [selectedValues, setSelectedValues] = useState<{
     [key: string]: string;
@@ -28,12 +30,15 @@ const Physical = () => {
       (prevScore) => prevScore - Number(previousValue) + Number(selectedValue)
     );
     console.log("total " + totalScore);
+
   };
 
   const handleNext = async () => {
     try {
       setIsLoading(true);
-      await postScore({ physical: totalScore }, user.id);
+      // await postScore({ physical: totalScore }, user.id);
+      localStorage.setItem("physicalScore", totalScore.toString());
+
     } catch (error) {
       console.error("Error while posting score:", error);
     } finally {
@@ -128,6 +133,7 @@ const Physical = () => {
 
                   <div className="grid gap-5">
                     {physicalQuestions.map((que, index) => (
+
                       <QuestionCard
                         key={index}
                         text={que.question}

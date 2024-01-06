@@ -8,6 +8,24 @@ import Link from "next/link";
 import { getMe, postScore } from "@/config/api";
 
 const Occupational = () => {
+
+  const score1: number = parseInt(localStorage.getItem("physicalScore") ?? "0", 0);
+  const score2: number = parseInt(localStorage.getItem("emotionalScore") ?? "0", 0);
+  const score3: number = parseInt(localStorage.getItem("environmentalScore") ?? "0", 0);
+  const score4: number = parseInt(localStorage.getItem("financialScore") ?? "0", 0);
+  const score5: number = parseInt(localStorage.getItem("intellectualScore") ?? "0", 0);
+  const score6: number = parseInt(localStorage.getItem("occupationalScore") ?? "0", 0);
+  const score7: number = parseInt(localStorage.getItem("socialScore") ?? "0", 0);
+  const score8: number = parseInt(localStorage.getItem("spiritualScore") ?? "0", 0);
+
+  const totalFinalScore = score1 + score2 + score3 + score4 + score5 + score6 + score7 + score8;
+
+
+
+
+
+
+
   const user: any = getMe();
   const [selectedValues, setSelectedValues] = useState<{
     [key: string]: string;
@@ -36,8 +54,9 @@ const Occupational = () => {
   const handleNext = async () => {
     try {
       setIsLoading(true);
-
-      await postScore({ occupational: totalScore }, user.id);
+      localStorage.setItem("occupationalScore", totalScore.toString());
+      console.log("Total Score:", totalFinalScore);
+      // await postScore({ occupational: totalScore }, user.id);
     } catch (error) {
       console.error("Error while posting score:", error);
     } finally {
@@ -155,11 +174,10 @@ const Occupational = () => {
 
                 <Link href="/financial">
                   <button
-                    className={`py-3 px-10 mr-4 mt-10 bg-emerald-500 inline-block rounded-full ${
-                      isLoading
-                        ? "opacity-50 cursor-not-allowed"
-                        : "hover:bg-emerald-600"
-                    } text-white`}
+                    className={`py-3 px-10 mr-4 mt-10 bg-emerald-500 inline-block rounded-full ${isLoading
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-emerald-600"
+                      } text-white`}
                     disabled={isLoading}
                   >
                     {isLoading ? "Loading..." : "Previous Page"}
@@ -168,11 +186,10 @@ const Occupational = () => {
 
                 <Link href="/result" onClick={handleNext}>
                   <button
-                    className={`py-3 px-10 mt-10 bg-emerald-500 inline-block rounded-full ${
-                      isLoading
-                        ? "opacity-50 cursor-not-allowed"
-                        : "hover:bg-emerald-600"
-                    } text-white`}
+                    className={`py-3 px-10 mt-10 bg-emerald-500 inline-block rounded-full ${isLoading
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-emerald-600"
+                      } text-white`}
                     onClick={handleNext}
                     disabled={isLoading}
                   >

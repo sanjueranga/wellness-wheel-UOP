@@ -8,6 +8,7 @@ import Link from "next/link";
 import { getMe, postScore } from "@/config/api";
 
 const Emotional = () => {
+
   const user: any = getMe();
   const [selectedValues, setSelectedValues] = useState<{
     [key: string]: string;
@@ -37,7 +38,8 @@ const Emotional = () => {
     try {
       setIsLoading(true);
 
-      await postScore({ emotional: totalScore }, user.id);
+      localStorage.setItem("emotionalScore", totalScore.toString());
+      // await postScore({ emotional: totalScore }, user.id);
     } catch (error) {
       console.error("Error while posting score:", error);
     } finally {
@@ -155,11 +157,10 @@ const Emotional = () => {
 
                 <Link href="/social">
                   <button
-                    className={`py-3 px-10 mr-4 mt-10 bg-emerald-500 inline-block rounded-full ${
-                      isLoading
-                        ? "opacity-50 cursor-not-allowed"
-                        : "hover:bg-emerald-600"
-                    } text-white`}
+                    className={`py-3 px-10 mr-4 mt-10 bg-emerald-500 inline-block rounded-full ${isLoading
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-emerald-600"
+                      } text-white`}
                     disabled={isLoading}
                   >
                     {isLoading ? "Loading..." : "Previous Page"}
@@ -168,11 +169,10 @@ const Emotional = () => {
 
                 <Link href="/financial" onClick={handleNext}>
                   <button
-                    className={`py-3 px-10 mt-10 bg-emerald-500 inline-block rounded-full ${
-                      isLoading
-                        ? "opacity-50 cursor-not-allowed"
-                        : "hover:bg-emerald-600"
-                    } text-white`}
+                    className={`py-3 px-10 mt-10 bg-emerald-500 inline-block rounded-full ${isLoading
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-emerald-600"
+                      } text-white`}
                     onClick={handleNext}
                     disabled={isLoading}
                   >
