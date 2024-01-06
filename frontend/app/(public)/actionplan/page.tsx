@@ -224,6 +224,123 @@ const ActionPlan = () => {
                       </div>
                     </div>
                   </div>
+                  <div className="card bg-base-100 border-2 border-transparent hover:border-[#e5d7d5] duration-300 delay-75">
+                    <div className="card-body ">
+
+                      <div className="grid  text-start">
+                        <label htmlFor="">
+                          {" "}
+                          <strong>Action Plan</strong><br /><br />
+                          What are the habits actions or routines you can start to close this gap? Be specific: define; <br /> <br />
+
+                          <strong>What</strong>(the action you will take)<br />
+                          <strong>When</strong>(Will it be ongoing? Or a one-time thing? Weekday or weekend?)<br />
+                          <strong>Where</strong>(In what kind of space will you execute it?)<br />
+                          <strong>Who</strong>(Alone? With friends?)<br />
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Your Answer"
+                          className="input input-bordered input-success w-full max-w-xs mt-5"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card bg-base-100 border-2 border-transparent hover:border-[#e5d7d5] duration-300 delay-75">
+                    <div className="card-body ">
+
+                      <div className="grid  text-start">
+                        <label htmlFor="">
+                          {" "}
+                          <strong>Action Plan</strong><br /><br />
+                          What are the habits actions or routines you can start to close this gap? Be specific: define; <br /> <br />
+
+                          <strong>What</strong>(the action you will take)<br />
+                          <strong>When</strong>(Will it be ongoing? Or a one-time thing? Weekday or weekend?)<br />
+                          <strong>Where</strong>(In what kind of space will you execute it?)<br />
+                          <strong>Who</strong>(Alone? With friends?)<br />
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Your Answer"
+                          className="input input-bordered input-success w-full max-w-xs mt-5"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card bg-base-100 border-2 border-transparent hover:border-[#e5d7d5] duration-300 delay-75">
+                    <div className="card-body ">
+
+                      <div className="grid  text-start">
+                        <label htmlFor="">
+                          {" "}
+                          <strong>Action Plan</strong><br /><br />
+                          What are the habits actions or routines you can start to close this gap? Be specific: define; <br /> <br />
+
+                          <strong>What</strong>(the action you will take)<br />
+                          <strong>When</strong>(Will it be ongoing? Or a one-time thing? Weekday or weekend?)<br />
+                          <strong>Where</strong>(In what kind of space will you execute it?)<br />
+                          <strong>Who</strong>(Alone? With friends?)<br />
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Your Answer"
+                          className="input input-bordered input-success w-full max-w-xs mt-5"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card bg-base-100 border-2 border-transparent hover:border-[#e5d7d5] duration-300 delay-75">
+                    <div className="card-body ">
+
+                      <div className="grid  text-start">
+                        <label htmlFor="">
+                          {" "}
+                          <strong>Start Date</strong><br /><br />
+
+                        </label>
+                        <input
+                          type="Date"
+                          placeholder="Your Answer"
+                          className="input input-bordered input-success w-full max-w-xs mt-5"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card bg-base-100 border-2 border-transparent hover:border-[#e5d7d5] duration-300 delay-75">
+                    <div className="card-body ">
+
+                      <div className="grid  text-start">
+                        <label htmlFor="">
+                          {" "}
+                          <strong>End Date</strong><br /><br />
+
+                        </label>
+                        <input
+                          type="Date"
+                          placeholder="Your Answer"
+                          className="input input-bordered input-success w-full max-w-xs mt-5"
+                        />
+                      </div>
+                    </div>
+                  </div>   <div className="card bg-base-100 border-2 border-transparent hover:border-[#e5d7d5] duration-300 delay-75">
+                    <div className="card-body ">
+
+                      <div className="grid  text-start">
+                        <label htmlFor="">
+                          {" "}
+                          <strong>My expected score </strong>(1 - 20)<br /><br />
+
+                        </label>
+                        <input
+                          type="select"
+                          placeholder="Your Answer"
+                          className="input input-bordered input-success w-full max-w-xs mt-5"
+                        />
+
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <Link href="/environmental">
