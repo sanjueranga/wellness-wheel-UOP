@@ -63,7 +63,7 @@ const Financial = () => {
     } else if (selectedValue === 'std') {
       setmyRoute('/' + 'student');
     } else if (selectedValue === 'not') {
-      setmyRoute('/' + 'notemployed');
+      setmyRoute('/' + 'unemployed');
     } else {
       console.log("Error while selecting occupation");
       setmyRoute('/' + 'financial');
