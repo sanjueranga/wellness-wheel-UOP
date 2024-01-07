@@ -19,6 +19,7 @@ const Occupational = () => {
   const score8: number = parseInt(localStorage.getItem("spiritualScore") ?? "0", 0);
 
   const totalFinalScore = score1 + score2 + score3 + score4 + score5 + score6 + score7 + score8;
+
   const scoreObject = { "physical": score1, "emotional": score2, "environmental": score3, "financial": score4, "intellectual": score5, "occupational": score6, "social": score7, "spiritual": score8 }
 
   const user: any = getMe();

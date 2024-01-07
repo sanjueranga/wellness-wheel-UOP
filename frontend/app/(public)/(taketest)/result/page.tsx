@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Chart from "chart.js/auto";
-import { getMe, getSutmissions } from "@/config/api";
+import { getMe, getSubmission } from "@/config/api";
 import styles from "./styles.module.css";
 
 import "@/styles/globals.css";
@@ -32,7 +32,7 @@ const RadarChart: React.FC = () => {
       try {
         const user: any = getMe();
         // const myUser: any = await getUser(user.id);
-        const myUser = await getSutmissions();
+        const myUser = await getSubmission();
         console.log("sub" + myUser);
         const data = await fetchData(myUser);
         console.log("data: " + data);

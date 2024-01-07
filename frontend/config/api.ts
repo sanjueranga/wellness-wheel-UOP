@@ -5,7 +5,7 @@ export async function postScore(data: any) {
   if (!token) {
     throw new Error("Authentication token not found");
   }
-  const res = await fetch(`${server}/user/profile`, {
+  const res = await fetch(`${server}/submission`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -50,7 +50,7 @@ export async function getMe() {
 }
 
 export async function postActionPlan(data: any, id: number) {
-  const res = await fetch(`${server}/action-plan/${id}`, {
+  const res = await fetch(`${server}/action-plan`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -63,7 +63,7 @@ export async function postActionPlan(data: any, id: number) {
   return await res.json();
 }
 
-export async function getSutmissions() {
+export async function getSubmission() {
   try {
     if (typeof localStorage === "undefined" || localStorage === null) {
       throw new Error("localStorage is not available");
