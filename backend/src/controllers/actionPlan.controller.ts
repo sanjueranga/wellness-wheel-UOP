@@ -17,6 +17,8 @@ import { CreateActionPlanDto } from 'src/dto/actionPlan.dto';
 import { JwtAuthGuard } from 'src/guards/jwt-auth.guard';
 import { ActionPlanService } from 'src/services/actionPlan.service';
 
+
+@UseGuards(JwtAuthGuard)
 @Controller('action-plan')
 export class ActionPlanController {
   constructor(private actionPlanService: ActionPlanService) {}
@@ -37,6 +39,7 @@ export class ActionPlanController {
     }
   }
 
+  //get action plan by userid
   @UseGuards(JwtAuthGuard)
   @Get()
   @HttpCode(200)
@@ -55,6 +58,7 @@ export class ActionPlanController {
     }
   }
 
+  // Create action plan for a user
   @UseGuards(JwtAuthGuard)
   @Post()
   @HttpCode(201)
