@@ -30,5 +30,8 @@ export class Submission {
   @Column({ nullable: true })
   financial: number;
 
+  @Column({ nullable: true })
+  total: number;
+
   @ManyToOne((type) => User, (user) => user.actionPlans) user: User;
 }

@@ -11,21 +11,24 @@ import {
   UseGuards,
   UsePipes,
   ValidationPipe,
+  Request,
 } from '@nestjs/common';
 import cookie from 'cookie';
 import { Submission } from 'src/entities/submission.entity';
 import { CreateSubmissonDto } from 'src/dto/submission.dto';
 import { SubmissonService } from 'src/services/submission.service';
+import { JwtAuthGuard } from 'src/guards/jwt-auth.guard';
 
 @Controller('submission')
 export class SubmissonController {
-  constructor(private submissonService: SubmissonService) {}
+  constructor(private submissionService: SubmissonService) {}
 
-  @Get(':id')
+  @UseGuards(JwtAuthGuard)
+  @Get()
   @HttpCode(200)
-  async getSubmissonByUserId(@Param('id') userId: number) {
+  async getSubmissonByUserId(@Request() req) {
     try {
-      const submissions = await this.submissonService.findAll(userId);
+      const submissions = await this.submissionService.findAll(req.user.userId);
 
       return {
         message: 'Submission retrieved successfully',
@@ -39,17 +42,18 @@ export class SubmissonController {
     }
   }
 
-  @Post(':id')
+  @UseGuards(JwtAuthGuard)
+  @Post()
   @HttpCode(201)
   @UsePipes(ValidationPipe)
   async createSubmission(
-    @Param('id') userId: number,
+    @Request() req,
     @Body() createSubmissionDto: CreateSubmissonDto,
   ) {
     try {
-      const submission = await this.submissonService.createSubmisson(
+      const submission = await this.submissionService.createSubmission(
         createSubmissionDto,
-        userId,
+        req.user.userId,
       );
 
       return {
@@ -64,28 +68,28 @@ export class SubmissonController {
     }
   }
 
-  @Put(':id') // Put method for updating submission
-  @HttpCode(200)
-  @UsePipes(ValidationPipe)
-  async updateSubmission(
-    @Param('id', ParseIntPipe) submissionId: number,
-    @Body() updateSubmissionDto: CreateSubmissonDto,
-  ) {
-    try {
-      const updatedSubmission = await this.submissonService.updateSubmission(
-        submissionId,
-        updateSubmissionDto,
-      );
+  // @Put(':id')
+  // @HttpCode(200)
+  // @UsePipes(ValidationPipe)
+  // async updateSubmission(
+  //   @Param('id', ParseIntPipe) submissionId: number,
+  //   @Body() updateSubmissionDto: CreateSubmissonDto,
+  // ) {
+  //   try {
+  //     const updatedSubmission = await this.submissonService.updateSubmission(
+  //       submissionId,
+  //       updateSubmissionDto,
+  //     );
 
-      return {
-        message: 'Submission updated successfully',
-        submission: updatedSubmission,
-      };
-    } catch (error) {
-      return {
-        message: 'Failed to update submission',
-        error: error.message,
-      };
-    }
-  }
+  //     return {
+  //       message: 'Submission updated successfully',
+  //       submission: updatedSubmission,
+  //     };
+  //   } catch (error) {
+  //     return {
+  //       message: 'Failed to update submission',
+  //       error: error.message,
+  //     };
+  //   }
+  // }
 }

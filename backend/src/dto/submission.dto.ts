@@ -40,5 +40,9 @@ export class CreateSubmissonDto {
   @IsOptional()
   financial?: number;
 
+  @IsNumber()
+  @IsOptional()
+  total?: number;
+
   user?: User;
 }
