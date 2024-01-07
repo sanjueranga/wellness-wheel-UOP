@@ -1,20 +1,6 @@
 export const server = process.env.SERVER ?? "http://localhost:3333/api";
 
-// export async function getUser() {
-//   const res = await fetch(`${server}/auth/google/login`, {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
-//   if (!res.ok) {
-//     throw new Error("Failed to submit user data");
-//   }
-//   console.log("success");
-//   return res;
-// }
-
-export async function postScore(data: any, id: number) {
+export async function postScore(data: any) {
   const token = localStorage.getItem("wellness-token");
   if (!token) {
     throw new Error("Authentication token not found");
@@ -27,14 +13,11 @@ export async function postScore(data: any, id: number) {
     },
     body: JSON.stringify(data),
   });
-
   if (!res.ok) {
     throw new Error("Failed to submit user data");
   }
-
   return await res.json();
 }
-
 export function saveUser(token: any) {
   localStorage.setItem("wellness-token", JSON.stringify(token));
 }
@@ -55,7 +38,6 @@ export async function getMe() {
         Authorization: `Bearer ${token}`,
       },
     });
-
     if (!res.ok) {
       throw new Error("Failed to fetch user data");
     }
@@ -67,7 +49,7 @@ export async function getMe() {
   }
 }
 
-export async function postActonPlan(data: any, id: number) {
+export async function postActionPlan(data: any, id: number) {
   const res = await fetch(`${server}/action-plan/${id}`, {
     method: "POST",
     headers: {
@@ -79,4 +61,58 @@ export async function postActonPlan(data: any, id: number) {
     throw new Error("Failed to action plan data");
   }
   return await res.json();
+}
+
+export async function getSutmissions() {
+  try {
+    if (typeof localStorage === "undefined" || localStorage === null) {
+      throw new Error("localStorage is not available");
+    }
+    const token = localStorage.getItem("wellness-token");
+    if (!token) {
+      throw new Error("Authentication token not found");
+    }
+    const res = await fetch(`${server}/submissions`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch submissions data");
+    }
+    const submissions = await res.json();
+    return submissions;
+  } catch (error: any) {
+    console.error("Error fetching submissions:", error.message);
+    return null;
+  }
+}
+
+export async function getActionPlan() {
+  try {
+    if (typeof localStorage === "undefined" || localStorage === null) {
+      throw new Error("localStorage is not available");
+    }
+    const token = localStorage.getItem("wellness-token");
+    if (!token) {
+      throw new Error("Authentication token not found");
+    }
+    const res = await fetch(`${server}/action-plan`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch actionPlan data");
+    }
+    const actionPlan = await res.json();
+    return actionPlan;
+  } catch (error: any) {
+    console.error("Error fetching ActionPlan:", error.message);
+    return null;
+  }
 }
