@@ -13,10 +13,19 @@ export class SubmissonService {
     private userService: UserService,
   ) {}
 
-  async createSubmisson(
+  async createSubmission(
     submissionData: CreateSubmissonDto,
     id: number,
   ): Promise<Submission> {
+    let total = 0;
+    for (const key in submissionData) {
+      if (Object.prototype.hasOwnProperty.call(submissionData, key)) {
+        if (key !== 'user') {
+          total += submissionData[key];
+        }
+      }
+    }
+    submissionData.total = total;
     submissionData.user = await this.userService.findOne(id);
     const submission = this.submissionRepository.create(submissionData);
     return this.submissionRepository.save(submission);

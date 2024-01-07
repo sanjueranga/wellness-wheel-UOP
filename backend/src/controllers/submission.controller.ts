@@ -11,7 +11,7 @@ import {
   UseGuards,
   UsePipes,
   ValidationPipe,
-  Request
+  Request,
 } from '@nestjs/common';
 import cookie from 'cookie';
 import { Submission } from 'src/entities/submission.entity';
@@ -21,14 +21,14 @@ import { JwtAuthGuard } from 'src/guards/jwt-auth.guard';
 
 @Controller('submission')
 export class SubmissonController {
-  constructor(private submissonService: SubmissonService) {}
+  constructor(private submissionService: SubmissonService) {}
 
   @UseGuards(JwtAuthGuard)
   @Get()
   @HttpCode(200)
   async getSubmissonByUserId(@Request() req) {
     try {
-      const submissions = await this.submissonService.findAll(req.user.userId);
+      const submissions = await this.submissionService.findAll(req.user.userId);
 
       return {
         message: 'Submission retrieved successfully',
@@ -51,7 +51,7 @@ export class SubmissonController {
     @Body() createSubmissionDto: CreateSubmissonDto,
   ) {
     try {
-      const submission = await this.submissonService.createSubmisson(
+      const submission = await this.submissionService.createSubmission(
         createSubmissionDto,
         req.user.userId,
       );
@@ -68,7 +68,7 @@ export class SubmissonController {
     }
   }
 
-  // @Put(':id') 
+  // @Put(':id')
   // @HttpCode(200)
   // @UsePipes(ValidationPipe)
   // async updateSubmission(
