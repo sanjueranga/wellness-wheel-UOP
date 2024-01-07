@@ -51,7 +51,8 @@ const Occupational = () => {
       setIsLoading(true);
       localStorage.setItem("occupationalScore", totalScore.toString());
       console.log("Total Score:", totalFinalScore);
-      await postScore(scoreObject, user.id);
+      // await postScore(scoreObject, user.id);
+      await postScore(scoreObject);
     } catch (error) {
       console.error("Error while posting score:", error);
     } finally {
