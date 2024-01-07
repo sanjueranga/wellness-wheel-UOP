@@ -1,16 +1,18 @@
 export const server = process.env.SERVER ?? "http://localhost:3333/api";
 
 export async function postScore(data: any) {
-  const token = localStorage.getItem("wellness-token");
-  if (!token) {
+  const tokenString = localStorage.getItem("wellness-token");
+  if (!tokenString) {
     throw new Error("Authentication token not found");
   }
+  const token = JSON.parse(tokenString);
   const res = await fetch(`${server}/submission`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
+
     body: JSON.stringify(data),
   });
   if (!res.ok) {
@@ -18,6 +20,7 @@ export async function postScore(data: any) {
   }
   return await res.json();
 }
+
 export function saveUser(token: any) {
   localStorage.setItem("wellness-token", JSON.stringify(token));
 }
@@ -27,10 +30,11 @@ export async function getMe() {
     if (typeof localStorage === "undefined" || localStorage === null) {
       throw new Error("localStorage is not available");
     }
-    const token = localStorage.getItem("wellness-token");
-    if (!token) {
+    const tokenString = localStorage.getItem("wellness-token");
+    if (!tokenString) {
       throw new Error("Authentication token not found");
     }
+    const token = JSON.parse(tokenString);
     const res = await fetch(`${server}/user/me`, {
       method: "GET",
       headers: {
@@ -49,11 +53,17 @@ export async function getMe() {
   }
 }
 
-export async function postActionPlan(data: any, id: number) {
-  const res = await fetch(`${server}/action-plan`, {
+export async function postActionPlan(data: any) {
+  const tokenString = localStorage.getItem("wellness-token");
+  if (!tokenString) {
+    throw new Error("Authentication token not found");
+  }
+  const token = JSON.parse(tokenString);
+  const res = await fetch(`${server}/action-plan/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(data),
   });
@@ -68,11 +78,12 @@ export async function getSubmission() {
     if (typeof localStorage === "undefined" || localStorage === null) {
       throw new Error("localStorage is not available");
     }
-    const token = localStorage.getItem("wellness-token");
-    if (!token) {
+    const tokenString = localStorage.getItem("wellness-token");
+    if (!tokenString) {
       throw new Error("Authentication token not found");
     }
-    const res = await fetch(`${server}/submissions`, {
+    const token = JSON.parse(tokenString);
+    const res = await fetch(`${server}/submission`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -95,10 +106,11 @@ export async function getActionPlan() {
     if (typeof localStorage === "undefined" || localStorage === null) {
       throw new Error("localStorage is not available");
     }
-    const token = localStorage.getItem("wellness-token");
-    if (!token) {
+    const tokenString = localStorage.getItem("wellness-token");
+    if (!tokenString) {
       throw new Error("Authentication token not found");
     }
+    const token = JSON.parse(tokenString);
     const res = await fetch(`${server}/action-plan`, {
       method: "GET",
       headers: {

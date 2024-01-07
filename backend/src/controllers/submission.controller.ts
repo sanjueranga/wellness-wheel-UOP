@@ -51,6 +51,7 @@ export class SubmissonController {
     @Body() createSubmissionDto: CreateSubmissonDto,
   ) {
     try {
+      console.log(createSubmissionDto);
       const submission = await this.submissionService.createSubmission(
         createSubmissionDto,
         req.user.userId,
