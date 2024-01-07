@@ -11,17 +11,19 @@ import {
   UseGuards,
   UsePipes,
   ValidationPipe,
-  Request
+  Request,
+  Res,
 } from '@nestjs/common';
 import { CreateActionPlanDto } from 'src/dto/actionPlan.dto';
 import { JwtAuthGuard } from 'src/guards/jwt-auth.guard';
 import { ActionPlanService } from 'src/services/actionPlan.service';
+import { Response } from 'express';
+import * as puppeteer from 'puppeteer';
 
-
-@UseGuards(JwtAuthGuard)
 @Controller('action-plan')
 export class ActionPlanController {
   constructor(private actionPlanService: ActionPlanService) {}
+  @UseGuards(JwtAuthGuard)
   @Get()
   @HttpCode(200)
   async getAllPlans() {
