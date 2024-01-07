@@ -17,7 +17,6 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
       if (!payload.userId) {
         throw new Error('Invalid payload: Missing userId');
       }
-
       return { userId: payload.userId };
     } catch (error) {
       throw new UnauthorizedException('Invalid token', error.message);
