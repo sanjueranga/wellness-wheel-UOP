@@ -16,6 +16,9 @@ const Financial = () => {
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  const [myRoute, setmyRoute] = useState<string>("");
+
+
   const handleRadioChange = (questionId: string, selectedValue: string) => {
     const previousValue = selectedValues[questionId] || "0";
 
@@ -45,6 +48,29 @@ const Financial = () => {
       setIsLoading(false);
     }
   };
+
+  const openModal = () => {
+    const modal = document.getElementById('my_modal_1') as HTMLDialogElement | null;
+    if (modal) {
+      modal.showModal();
+    }
+  };
+
+  const handleOccupation = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedValue = event.target.value;
+    if (selectedValue === 'emp') {
+      setmyRoute('/' + 'employed');
+    } else if (selectedValue === 'std') {
+      setmyRoute('/' + 'student');
+    } else if (selectedValue === 'not') {
+      setmyRoute('/' + 'notemployed');
+    } else {
+      console.log("Error while selecting occupation");
+      setmyRoute('/' + 'financial');
+    }
+  };
+
+
 
   return (
     <section className="bg-white">
@@ -157,8 +183,8 @@ const Financial = () => {
                 <Link href="/emotional">
                   <button
                     className={`py-3 px-10 mr-4 mt-10 bg-emerald-500 inline-block rounded-full ${isLoading
-                        ? "opacity-50 cursor-not-allowed"
-                        : "hover:bg-emerald-600"
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-emerald-600"
                       } text-white`}
                     disabled={isLoading}
                   >
@@ -166,18 +192,91 @@ const Financial = () => {
                   </button>
                 </Link>
 
-                <Link href="/occupational" onClick={handleNext}>
+
+                <button
+                  className={`py-3 px-10 mt-10 bg-emerald-500 inline-block rounded-full ${isLoading
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:bg-emerald-600"
+                    } text-white`}
+                  onClick={openModal}
+                  disabled={isLoading}
+                >
+                  {isLoading ? "Loading..." : "Next Page"}
+                </button>
+
+                <dialog id="my_modal_1" className="modal">
+                  <div className="modal-box">
+                    <h3 className="font-bold text-lg">Occupation</h3>
+                    <p className="py-4">Select and complete 1 of 3 Self-Assesments, depending on whether you are currently employed, looking fro work, or not working</p>
+                    <label className="label cursor-pointer ">
+                      <input
+                        type="radio"
+                        value="emp"
+                        name="occupation"
+                        className="radio w-8 h-8 border-[#33A474] border-2 checked:bg-[#33A474]"
+                        onChange={handleOccupation}
+                        required
+                      />
+                      <span className="label-text">Currently  Employed</span>
+                    </label>
+                    <label className="label cursor-pointer ">
+                      <input
+                        type="radio"
+                        value="std"
+                        name="occupation"
+                        className="radio w-8 h-8 border-[#33A474] border-2 checked:bg-[#33A474]"
+                        onChange={handleOccupation}
+                        required
+                      />
+                      <span className="label-text">Student / Looking for work</span>
+                    </label><label className="label cursor-pointer ">
+                      <input
+                        type="radio"
+                        value="not"
+                        name="occupation"
+                        className="radio w-8 h-8 border-[#33A474] border-2 checked:bg-[#33A474]"
+                        onChange={handleOccupation}
+                        required
+                      />
+                      <span className="label-text">Not Working</span>
+                    </label>
+                    <div className="modal-action">
+                      <form method="dialog">
+                        {/* if there is a button in form, it will close the modal */}
+                        <div className=""><button className={`py-3 px-10 mt-10 mr-40 bg-emerald-500 inline-block rounded-full ${isLoading
+                          ? "opacity-50 cursor-not-allowed"
+                          : "hover:bg-emerald-600"
+                          } text-white`} >
+                          Close
+                        </button>
+                          <Link href={myRoute}>
+                            <button
+                              className={`py-3 px-10 mr-4 mt-10 bg-emerald-500 inline-block rounded-full ${isLoading
+                                ? "opacity-50 cursor-not-allowed"
+                                : "hover:bg-emerald-600"
+                                } text-white`}
+                              disabled={isLoading}
+                            >
+                              {isLoading ? "Loading..." : "Next Page"}
+                            </button>
+                          </Link></div>
+                      </form>
+                    </div>
+                  </div>
+                </dialog>
+
+                {/* <Link href="/occupational" onClick={handleNext}>
                   <button
                     className={`py-3 px-10 mt-10 bg-emerald-500 inline-block rounded-full ${isLoading
-                        ? "opacity-50 cursor-not-allowed"
-                        : "hover:bg-emerald-600"
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-emerald-600"
                       } text-white`}
                     onClick={handleNext}
                     disabled={isLoading}
                   >
                     {isLoading ? "Loading..." : "Next Page"}
                   </button>
-                </Link>
+                </Link> */}
               </div>
             </div>
             {/* </form> */}
