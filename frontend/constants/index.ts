@@ -330,7 +330,7 @@ export const finantialQuestions = [
   },
 ];
 
-export const occupationalQuestions = [
+export const occupationalStudentQuestions = [
   {
     question: "I am actively pursuing work and/or training.",
     ans: "question1",
@@ -374,6 +374,102 @@ export const occupationalQuestions = [
   },
   {
     question: "I am hopeful in my job search.",
+    ans: "question10",
+  },
+];
+
+export const occupationalEmployedQuestions = [
+  {
+    question: "I am happy with my career choice.",
+    ans: "question1",
+  },
+  {
+    question:
+      "I am productive on most days at work.",
+    ans: "question2",
+  },
+  {
+    question:
+      "I look forward to work",
+    ans: "question3",
+  },
+  {
+    question: "My job responsibilities/duties are consistent with my values.",
+    ans: "question4",
+  },
+  {
+    question:
+      "The payoffs and advantages in my choice of career/field are consistent with my values.",
+    ans: "question5",
+  },
+  {
+    question:
+      "I am happy with the balance between my work time and my leisure time.",
+    ans: "question6",
+  },
+  {
+    question:
+      "I am happy with the amount of control I have in my work.",
+    ans: "question7",
+  },
+  {
+    question: "My work gives me personal satisfaction and stimulation.",
+    ans: "question8",
+  },
+  {
+    question: "I am happy with the professional and personal growth that is provided by my job.",
+    ans: "question9",
+  },
+  {
+    question: "My job allows me to make good use of my talents",
+    ans: "question10",
+  },
+];
+
+export const occupationalUnemployedQuestions = [
+  {
+    question: "I am happy with how I spend my time.",
+    ans: "question1",
+  },
+  {
+    question:
+      "I have plans for things that I want to do.",
+    ans: "question2",
+  },
+  {
+    question:
+      "I do things with other people often enough not to feel isolated.",
+    ans: "question3",
+  },
+  {
+    question: "I use my time in a way that gives me meaning and purpose.",
+    ans: "question4",
+  },
+  {
+    question:
+      "I make good use of my strengths and experiences in the things I am doing each week.",
+    ans: "question5",
+  },
+  {
+    question:
+      "My weekly activities are consistent with my values and interests.",
+    ans: "question6",
+  },
+  {
+    question:
+      "I control how I spend my time.",
+    ans: "question7",
+  },
+  {
+    question: "I volunteer in the community, or have considered volunteering.",
+    ans: "question8",
+  },
+  {
+    question: "I feel productive every week.",
+    ans: "question9",
+  },
+  {
+    question: "I look forward to my daily and weekly activities.",
     ans: "question10",
   },
 ];

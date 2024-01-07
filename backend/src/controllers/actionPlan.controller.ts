@@ -55,10 +55,15 @@ export class ActionPlanController {
   @Post()
   @HttpCode(201)
   @UsePipes(ValidationPipe)
-  async createActionPlan(@Body() createActionPlanDto: CreateActionPlanDto) {
+  async createActionPlan(
+    @Param('id') userId: number,
+    @Body() createActionPlanDto: CreateActionPlanDto,
+  ) {
     try {
-      const actionplan =
-        await this.actionPlanService.createActionPlan(createActionPlanDto);
+      const actionplan = await this.actionPlanService.createActionPlan(
+        createActionPlanDto,
+        userId,
+      );
       console.log(createActionPlanDto);
       return {
         message: 'action plan created successfully',

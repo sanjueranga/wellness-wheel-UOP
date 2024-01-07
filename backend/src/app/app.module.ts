@@ -17,12 +17,12 @@ import { ActionPlan } from 'src/entities/actionPlan.entity';
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       ...dbConfig(),
-      entities:[User,Submission,ActionPlan]
+      entities: [User, Submission, ActionPlan],
     }),
     UserModule,
     AuthModule,
     SubmissonModule,
-    ActionPlanModule
+    ActionPlanModule,
   ],
   controllers: [AppController],
   providers: [AppService],

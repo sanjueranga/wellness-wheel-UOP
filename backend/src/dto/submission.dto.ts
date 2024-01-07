@@ -1,4 +1,11 @@
-import { IsEmail, IsOptional, IsString, IsNumber } from 'class-validator';
+import {
+  IsEmail,
+  IsOptional,
+  IsString,
+  IsNumber,
+  IsNotEmpty,
+} from 'class-validator';
+import { User } from 'src/entities/user.entity';
 
 export class CreateSubmissonDto {
   @IsNumber()
@@ -32,5 +39,6 @@ export class CreateSubmissonDto {
   @IsNumber()
   @IsOptional()
   financial?: number;
-}
 
+  user?: User;
+}
