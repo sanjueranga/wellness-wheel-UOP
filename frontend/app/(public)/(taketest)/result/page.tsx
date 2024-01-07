@@ -17,7 +17,6 @@ interface ChartData {
 }
 
 const RadarChart: React.FC = () => {
-  const [userData, setUserData] = useState<any | null>(null);
   const [physicalScore, setPhysicalScore] = useState();
   const [intellectualScore, setIntellectualScore] = useState();
   const [occupationalScore, setOccupationalScore] = useState();
@@ -26,18 +25,43 @@ const RadarChart: React.FC = () => {
   const [emotionalScore, setEmotionalScore] = useState();
   const [socialScore, setSocialScore] = useState();
   const [spiritualScore, setSpiritualScore] = useState();
+  const [userData, setUserData] = useState<any | null>(null);
+
+
 
   useEffect(() => {
     const fetchDataAndSetState = async () => {
       try {
         const user: any = getMe();
         // const myUser: any = await getUser(user.id);
-        const myUser = await getSubmission();
-        console.log("sub" + myUser);
-        const data = await fetchData(myUser);
-        console.log("data: " + data);
-        setUserData(data);
-        updateChart(data);
+        const myData = await getSubmission();
+        const mySubmission = myData.submissions;
+        setPhysicalScore(mySubmission[0].physical);
+        setIntellectualScore(mySubmission[0].intellectual);
+        setOccupationalScore(mySubmission[0].occupational);
+        setFinancialScore(mySubmission[0].financial);
+        setEnvironmentalScore(mySubmission[0].environmental);
+        setEmotionalScore(mySubmission[0].emotional);
+        setSocialScore(mySubmission[0].social);
+        setSpiritualScore(mySubmission[0].spiritual);
+
+        // console.log("sub: " + myUser.submissions[0].emotional);
+        // const data = await fetchData(myUser);
+        // console.log("data: " + data);
+        // setUserData(data);
+        const data = {
+          "physical": mySubmission[0].physical,
+          "intellectual": mySubmission[0].intellectual,
+          "occupational": mySubmission[0].occupational,
+          "financial": mySubmission[0].financial,
+          "environmental": mySubmission[0].environmental,
+          "emotional": mySubmission[0].emotional,
+          "social": mySubmission[0].social,
+          "spiritual": mySubmission[0].spiritual
+        }
+
+
+        updateChart("");
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
@@ -46,43 +70,6 @@ const RadarChart: React.FC = () => {
     fetchDataAndSetState();
   }, []);
 
-  const fetchData = async (myUser: any) => {
-    try {
-      const physicalScore = myUser.user.physical;
-      const intellectualScore = myUser.user.intellectual;
-      const occupationalScore = myUser.user.occupational;
-      const financialScore = myUser.user.financial;
-      const environmentalScore = myUser.user.environmental;
-      const emotionalScore = myUser.user.emotional;
-      const socialScore = myUser.user.social;
-      const spiritualScore = myUser.user.spiritual;
-
-      setPhysicalScore(physicalScore);
-      setIntellectualScore(intellectualScore);
-      setOccupationalScore(occupationalScore);
-      setFinancialScore(financialScore);
-      setEnvironmentalScore(environmentalScore);
-      setEmotionalScore(emotionalScore);
-      setSocialScore(socialScore);
-      setSpiritualScore(spiritualScore);
-
-      return {
-        physicalScore,
-        intellectualScore,
-        occupationalScore,
-        financialScore,
-        environmentalScore,
-        emotionalScore,
-        socialScore,
-        spiritualScore,
-      };
-    } catch (e) {
-      console.error("Error fetching data: ", e);
-      throw e;
-    }
-  };
-
-  console.log("data", userData);
 
   const updateChart = (data: any) => {
     const ctx = document.getElementById("radarChart") as HTMLCanvasElement;
@@ -101,15 +88,15 @@ const RadarChart: React.FC = () => {
         {
           label: "My Test 2",
           data: [
-            // data.physicalScore,
-            // data.intellectualScore,
-            // data.occupationalScore,
-            // data.financialScore,
-            // data.environmentalScore,
-            // data.emotionalScore,
-            // data.socialScore,
-            // data.spiritualScore,
-            3, 12, 5, 7, 14, 8, 18, 2,
+            // data.physical,
+            // data.intellectual,
+            // data.occupational,
+            // data.financial,
+            // data.environmental,
+            // data.emotional,
+            // data.social,
+            // data.spiritual,
+            12, 5, 7, 14, 8, 18, 2, 19
           ],
           backgroundColor: [
             "rgba(142, 68, 173, 0.5)",
@@ -135,14 +122,15 @@ const RadarChart: React.FC = () => {
         {
           label: "My Test 1",
           data: [
-            data.physicalScore,
-            data.intellectualScore,
-            data.occupationalScore,
-            data.financialScore,
-            data.environmentalScore,
-            data.emotionalScore,
-            data.socialScore,
-            data.spiritualScore,
+            // data[1].physicalScore,
+            // data[1].intellectualScore,
+            // data[1].occupationalScore,
+            // data[1].financialScore,
+            // data[1].environmentalScore,
+            // data[1].emotionalScore,
+            // data[1].socialScore,
+            // data[1].spiritualScore,
+            13, 2, 3, 17, 11, 12, 8, 22,
           ],
           backgroundColor: [
             "rgba(50, 163, 127, 0.5)",
@@ -289,3 +277,44 @@ const RadarChart: React.FC = () => {
 };
 
 export default RadarChart;
+
+
+// const fetchData = async (myUser: any) => {
+//   try {
+//     const physicalScore = myUser.user.physical;
+//     const intellectualScore = myUser.user.intellectual;
+//     const occupationalScore = myUser.user.occupational;
+//     const financialScore = myUser.user.financial;
+//     const environmentalScore = myUser.user.environmental;
+//     const emotionalScore = myUser.user.emotional;
+//     const socialScore = myUser.user.social;
+//     const spiritualScore = myUser.user.spiritual;
+
+//     setPhysicalScore(physicalScore);
+//     setIntellectualScore(intellectualScore);
+//     setOccupationalScore(occupationalScore);
+//     setFinancialScore(financialScore);
+//     setEnvironmentalScore(environmentalScore);
+//     setEmotionalScore(emotionalScore);
+//     setSocialScore(socialScore);
+//     setSpiritualScore(spiritualScore);
+
+//     return {
+//       physicalScore,
+//       intellectualScore,
+//       occupationalScore,
+//       financialScore,
+//       environmentalScore,
+//       emotionalScore,
+//       socialScore,
+//       spiritualScore,
+//     };
+//   } catch (e) {
+//     console.error("Error fetching data: ", e);
+//     throw e;
+//   }
+// };
+
+// console.log("data", userData);
+
+
