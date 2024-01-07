@@ -20,12 +20,6 @@ const Occupational = () => {
 
   const totalFinalScore = score1 + score2 + score3 + score4 + score5 + score6 + score7 + score8;
 
-
-
-
-
-
-
   const user: any = getMe();
   const [selectedValues, setSelectedValues] = useState<{
     [key: string]: string;
