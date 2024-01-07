@@ -9,16 +9,19 @@ import {
   Post,
   Put,
   UseGuards,
+  Request,
 } from '@nestjs/common';
 import { UserService } from '../services/user.service';
 import { CreateUserDto, EditUserDto } from 'src/dto/user.dto';
 import cookie from 'cookie';
 import { User } from 'src/entities/user.entity';
+import { JwtAuthGuard } from 'src/guards/jwt-auth.guard';
 
 @Controller('users')
 export class UserController {
   constructor(private userService: UserService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   @HttpCode(200)
   async getAllUsers() {
@@ -36,11 +39,12 @@ export class UserController {
     }
   }
 
-  @Get(':id')
+  @UseGuards(JwtAuthGuard)
+  @Get('me')
   @HttpCode(200)
-  async getUserById(@Param('id') userId: number) {
+  async getUserById(@Request() req) {
     try {
-      const user = await this.userService.findOne(userId);
+      const user = await this.userService.findOne(req.user.userId);
       return {
         message: 'User retrieved successfully',
         user,
