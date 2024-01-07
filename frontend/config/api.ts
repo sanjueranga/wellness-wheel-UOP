@@ -74,7 +74,7 @@ export function getMe() {
   }
 }
 
-export async function postActonPlan(data: any, id: number) {
+export async function postActionPlan(data: any, id: number) {
   const res = await fetch(`${server}/action-plan/${id}`, {
     method: "POST",
     headers: {
