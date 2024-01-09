@@ -18,7 +18,6 @@ import { CreateActionPlanDto } from 'src/dto/actionPlan.dto';
 import { JwtAuthGuard } from 'src/guards/jwt-auth.guard';
 import { ActionPlanService } from 'src/services/actionPlan.service';
 import { Response } from 'express';
-import * as puppeteer from 'puppeteer';
 
 @Controller('action-plan')
 export class ActionPlanController {
