@@ -49,6 +49,7 @@ const RadarChart: React.FC = () => {
         // const data = await fetchData(myUser);
         // console.log("data: " + data);
         // setUserData(data);
+        //helllo
         const data = {
           "physical": mySubmission[0].physical,
           "intellectual": mySubmission[0].intellectual,
@@ -69,6 +70,42 @@ const RadarChart: React.FC = () => {
 
     fetchDataAndSetState();
   }, []);
+
+  // const fetchData = async (myUser: any) => {
+  //   try {
+  //     const physicalScore = myUser.user.physical;
+  //     const intellectualScore = myUser.user.intellectual;
+  //     const occupationalScore = myUser.user.occupational;
+  //     const financialScore = myUser.user.financial;
+  //     const environmentalScore = myUser.user.environmental;
+  //     const emotionalScore = myUser.user.emotional;
+  //     const socialScore = myUser.user.social;
+  //     const spiritualScore = myUser.user.spiritual;
+
+  //     setPhysicalScore(physicalScore);
+  //     setIntellectualScore(intellectualScore);
+  //     setOccupationalScore(occupationalScore);
+  //     setFinancialScore(financialScore);
+  //     setEnvironmentalScore(environmentalScore);
+  //     setEmotionalScore(emotionalScore);
+  //     setSocialScore(socialScore);
+  //     setSpiritualScore(spiritualScore);
+
+  //     return {
+  //       physicalScore,
+  //       intellectualScore,
+  //       occupationalScore,
+  //       financialScore,
+  //       environmentalScore,
+  //       emotionalScore,
+  //       socialScore,
+  //       spiritualScore,
+  //     };
+  //   } catch (e) {
+  //     console.error("Error fetching data: ", e);
+  //     throw e;
+  //   }
+  // };
 
 
   const updateChart = (data: any) => {
